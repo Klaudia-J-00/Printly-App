@@ -1,38 +1,1223 @@
-.App {
-  text-align: center;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif!important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container-inner {
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.about {
+    margin-top: 100px;
+}
+
+.navbar {
+    background-color: #09D3FE;
+    filter: drop-shadow(7px 9px 8px rgba(0, 0, 0, 0.25));
+    border-radius: 23px;
+    height: 40%;
+    margin-top: 35px;
+}
+
+.nav-link {
+    margin-left: 31px;
+    color: white!important;
+    font-family: Poppins;
+    font-weight: 600!important;
+}
+
+.dropdown-item { 
+    color: white!important;
+    background-color: #09D3FE;
+    font-family: Poppins;
+    font-weight: 600!important;
+}
+
+.dropdown-menu {
+    background-color: #09D3FE!important;
+    border-radius: 23px!important;
+    border: 1px #09D3FE solid!important;
+    position: absolute;
+    z-index: 99!important;
+    padding: 10px!important;
+    margin-top: 20px!important;
+}
+
+.dropdown-menu li {
+    background-color: #09D3FE!important;
+    border-radius: 23px!important;
+}
+
+.dropdown-item:hover{
+    background-color: #09D3FE!important;
+    border-radius: 23px!important;
+    font-weight: 1000!important;
+}
+
+
+#validationMessage {
+    text-align: center;
+    color: #F10CD7;
+}
+
+hr {
+    margin: 0!important;
+    margin-top: 4px!important;
+}
+
+
+.poster {
+    border-radius: 30px;
+}
+
+.about>h3 {
+    color: #767676;
+    font-family: Poppins;
+    font-weight: 600!;
+    line-height: 40px;
+}
+
+.about-col>h5 {
+    color: #767676;
+    font-family: Poppins;
+    font-weight: 500;
+}
+
+.about-col>p{
+    color: #A4A4A4;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.pink {
+    background-color: #F10CD7;;
+}
+
+.photo { 
+    background-image: url("img/stickers.jpg");
+}
+
+.map {
+    background-color:#09D3FE;
+}
+
+.pink>h2 {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 55px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.pink>h5 {
+    color: #FFF;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.con {
+    width: 100%;
+    margin: 0;
+}
+
+.see-there {
+    border-radius: 35px;
+    border: 2px solid #FFF;
+    background: #F10CD7;
+    height: 40px;
+}
+
+.see-there:hover {
+    background: #FFF;
+    border: 2px solid #F10CD7;
+}
+
+.see-there:hover a {
+    color: #F10CD7;
+}
+
+.see-there>a {
+    text-decoration: none;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: normal;
+    padding: 10px;
+}
+
+.map>h3 {
+    margin-left: 40px;
+    margin-top:20px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.map>p{
+    margin-left: 40px;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* CARDS */
+.cont { 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-family: Poppins;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.cont .card {
+    margin: 5px;
+    position: relative;
+    border-radius: 30px;
+    width: 700px;
+    height: 330px;
+    padding: 15px;
+    background-color: #b1b1b1;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+}
+
+.cont .card h2 {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 600;
+    z-index: 100;
+    position: absolute;
+    bottom: 25px;
+    right: 130px;
+    pointer-events: none;
+    transition: .3s ease;
+    text-shadow: 0 0 15px rgba(0, 0, 0, .5);
+}
+
+.cont .card p {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    z-index: 100;
+    position: absolute;
+    bottom: 30px;
+    right: 130px;
+    opacity: 0;
+    text-align: right;
+    transition: .3s ease;
+}
+
+.cont .card span{
+    z-index: 99;
+    position: absolute;
+    font-size: 30px;
+    top: 70px;
+    right: 23px;
+    color: #5C5D67;
+    writing-mode: vertical-lr;
+    transition: .3 ease;
+    opacity: 1;
+}
+
+.cont .card .pic { 
+    z-index: 97; 
+    width: 500px;
+    height: 300px;
+    background-image: url(img/print2.jpg);
+    background-size: cover;
+    border-radius: 30px;
+    filter: grayscale(70%);
+    transition: .4s ease;
+}
+
+.cont .card button {
+    position: absolute;
+    z-index: 99;
+    right: 30px;
+    bottom: 40px;
+    width: 30px;
+    height: 30px;
+    background-color:  #F10CD7;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    outline: none;
+    opacity: 1; 
+    transition: .4s ease;
+}
+
+.cont .card:hover button {
+    transform: scale(30);
+    opacity: .8;
+}
+
+.cont .card:hover {
+    background-color: #F10CD7;
+}
+.cont .card:hover h2 {
+    font-size: 35px;
+    bottom: 130px;
+    right: 50px; 
+}
+
+.cont .card2:hover h2 {
+    bottom: 150px;
+}
+
+.cont .card:hover p {
+    width: 400px;
+    opacity: 1;
+    right: 60px;
+}
+
+.cont .card:hover span {
+    opacity: 0; 
+    top: 80px;
+}
+
+.cont .card:hover .pic {
+    filter: grayscale(0);
+    width: 670px;
+}
+
+.cont .card2:hover {
+    background-color: #09D3FE;
+}
+
+.container .card2 .pic {
+    background-image: url(img/sticker.jpg);
+    transition: .3s ease;
+}
+
+.container .card2 button {
+    background-color: #09D3FE;
+}
+
+footer {
+    background-color: #09D3FE;
+    padding-bottom: 50px;
+}
+
+footer h3 {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+footer h4 {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.socials-icon {
+    color: #F10CD7;
+    padding: 8px;
+    font-size: 43px;
+    background-color: #FFF;
+    border-radius: 30px;
+    margin-right: 6px;
+}
+
+.socials-icon:hover {
+    color: #FFF;
+    background-color: #F10CD7;
+}
+
+footer h5 {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+footer p {
+    color: #F10CD7;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+footer .stars {
+    color: #fce623;
+}
+
+footer button {
+    background-color: #09D3FE;
+    border: 2px solid white;
+    border-radius: 30px;
+    width: 60px;
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+}
+
+footer button:hover {
+    background-color: #FFF;
+}
+
+footer a:hover {
+    color:#09D3FE;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+}
+
+footer .stars i {
+    margin: 1px;
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.reveal2 {
+    position: relative;
+    transform: translateX(150px);
+    opacity: 0;
+    transition: 1.5s all ease;
+}
+
+.reveal2.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.reveal3 {
+    position: relative;
+    transform: translateY(-300px);
+    opacity: 0;
+    transition: 2s all ease;
+}
+
+.reveal3.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#cookiePopup {
+    background-color: #FFF;
+    position: fixed;
+    font-size: 14px;
+    width: 70vw;
+    max-width: 42.85em;
+    box-shadow: 0 0 2em rgba(5, 0, 31, 0.15);
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+    line-height: 1.4rem;
+    padding: 2em 1.4em;
+    border-radius: 35px;
+    transition: all .5s ease-in;
+}
+
+#cookiePopup img {
+    display: block;
+    width: 5rem;
+    transform: translateZ(0);
+    position: relative;
+    margin: auto;
+}
+
+#cookiePopup p {
+    margin: 1.4em 0;
+    font-weight: 500;
+}
+
+#cookiePopup button {
+    background-color: #F10CD7;
+    border: 2px white solid;
+    border-radius: 25px;
+    padding: 0.5em 1.2em;
+    color: #FFF;
+    font-size: 1.2em;
+    display: block;
+    position: relative;
+    margin: auto;
+    font-weight: 600;
+}
+
+#cookiePopup button:hover {
+    background-color: #FFF;
+    color: #F10CD7;
+}
+
+#cookiePopup a {
+    color: #09D3FE;
+    text-decoration: none;
+}
+
+.show2 {
+    visibility: visible;
+    bottom: 2em;
+    right: 2em;
+    z-index: 3;
+}
+
+.hide2 {
+    visibility: hidden;
+    bottom: 0;
+    right: 0;
+}
+
+.policy p {
+    color: #A4A4A4;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.policy li { 
+    color: #A4A4A4;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.policy h2 {
+    color: #575757;
+    font-family: Poppins;
+    font-weight: 800;
+}
+
+.policy h5 {
+    color: #858585;
+    font-family: Poppins;
+    font-weight: 700;
+}
+
+.policy a {
+    color: #F10CD7;
+}
+
+.terms p {
+    color: #A4A4A4;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.terms li { 
+    color: #A4A4A4;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.terms h2 {
+    color: #575757;
+    font-family: Poppins;
+    font-weight: 800;
+}
+
+.terms h5 {
+    color: #858585;
+    font-family: Poppins;
+    font-weight: 700;
+}
+
+.terms a {
+    color: #F10CD7;
+}
+
+.terms li {
+    list-style-type: decimal;
+}
+
+.terms{
+    margin-bottom: 100px;
+}
+
+.policy{
+    margin-bottom: 100px;
+}
+
+.terms-img {
+    border-radius: 30px;
+}
+
+.terms ul li{
+    list-style: url('img/circle-check-regular.svg')
+}
+
+.policy li{
+    list-style: url('img/circle-check-regular.svg')
+}
+
+.contact-footer {
+    margin-top: 150px;
+}
+
+.contact-form {
+    background-color: #b9b9b9;
+    border-radius: 40px;
+}
+
+.contact-form h1 {
+    font-family: Poppins;
+    font-weight: 800;
+}
+
+.contact-form h3 {
+    font-family: Poppins;
+    font-weight: 700;
+}
+
+.contact-form h5 {
+    font-family: Poppins;
+    font-weight: 800;
+}
+
+.contact-form p {
+    color: #fff;
+}
+
+.contact-form a {
+    color: #F10CD7;
+}
+
+.contact-form button {
+    background-color: #b9b9b9;
+    border-color: #FFF;
+    font-family: Poppins;
+    font-weight: 600;
+    padding: 15px;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 30px;
+}
+
+.contact-form button:hover {
+    background-color: #FFF;
+    border: 2px solid white;;
+    color: #b9b9b9;
+}
+
+
+.form-input {
+    width: 70%;
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.form-check-input {
+    background-color: #09D3FE!important;
+    border-color: #fff!important;
+}
+
+.form-message {
+    text-align: left!important;
+}
+
+.form-control {
+    border: 2px solid #fff!important;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-label {
+    margin-top: 5px;
+    font-family: Poppins;
+    font-weight: 600;
+    color: #000;
+}
+
+.captcha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-info {
+    bottom: -100px;
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: #F10CD7;
+    border: 2px solid white;
+    border-radius: 40px;
+    color: white;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.contact-icon {
+    font-size: 350%;
+    padding: 20px;
+    color: #09D3FE;
+}
+
+.contact-header {
+    top: 100px;
+    position: relative;
+}
+
+.messenger {
+    color: #FFF!important;
+    text-decoration: none;
+}
+
+.messenger:hover {
+    color: #09D3FE!important;
+    text-decoration: none;
+}
+
+.bounce-div {
+    position: relative;
+    cursor: pointer;
+    animation: bounce 4s infinite;
   }
+
+.bounce-div:hover {
+    animation: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px) scale(1.2);
+    }
+    60% {
+      transform: translateY(-10px) scale(1.05);
+    }
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+.call-me {
+    background-color: #F10CD7!important;
+    color: #FFF;
+    display: none;
 }
+
+.message-me {
+    background-color: #F10CD7!important;
+    color: #FFF;
+}
+
+.custom-dropdown-container {
+    position: relative;
+    z-index: 2; 
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    z-index: 3; 
+  }
+
+/* SERVICES */
+.card-title {
+    font-family: Poppins;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.card-one {
+    background-color: #FFF;
+    border-radius: 40px;
+    padding: 30px;
+}
+
+.card-text {
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 20px;
+    color: #4d4d4d;
+}
+
+.option-sticker {
+    font-weight: 800;
+    font-family: Poppins;
+    font-size: 16px;
+    color: #646464;
+}
+
+.card-container {
+    margin-top: 50px;
+    transition: margin-top 0.3s ease;
+    position: relative; 
+    background-color: #09D3FE;
+    border-radius: 40px;
+    padding: 50px;
+}
+
+.card-container button{
+    background-color: #F10CD7;
+    color: #FFF;
+    font-family: Poppins;
+    font-weight: 600;
+    padding: 15px;
+    width: 300px;
+    border: 2px solid white;
+    border-radius: 30px;
+    position: relative;
+    display: block;
+    margin: auto;
+}
+
+.card-container button:hover{
+    background-color: #ffffff;
+    color: #F10CD7;
+    border: 2px solid #F10CD7;
+}
+
+.card-container a {
+    color: #FFF;
+    text-decoration: none
+}
+
+.card-container a:hover {
+    color: #F10CD7;
+}
+
+#price2 {
+    display: none;
+}
+
+
+/* BANERS */ 
+
+.button-banner {
+    width: 120px!important;
+}
+
+.card-text-2 {
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.card-text-3 {
+    font-weight: 300;
+    color: #F10CD7;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.baners-list {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.link {
+    color: #F10CD7!important;
+}
+
+.link:hover {
+    color: #09D3FE!important;
+}
+
+.scroll-down{
+    display: none;
+}
+
+/* PRICE LIST */ 
+.price-list {
+    background-color: #09D3FE;
+    border-radius: 40px;
+    padding: 50px;
+    position: relative;
+}
+
+.price-list-row {
+    background-color: #FFF;
+    border-radius: 40px;
+    margin: 30px;
+    padding: 50px;
+}
+
+.price-list-col {
+    border-right: #000 1px solid;
+}
+
+.price-list-col li {
+    font-size: 14px;
+}
+
+.header-center {
+    text-align: center;
+    font-weight: 800;
+}
+
+.header-center-white {
+    color: #F10CD7;
+    text-align: center;
+    font-weight: 800;
+}
+
+.header-center-blue {
+    color: #09D3FE;
+    text-align: center;
+    font-weight: 800;
+}
+
+.red {
+    color: red ;
+}
+
+.white-list {
+    font-size: 14px;
+}
+
+.middle-list {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blue-button {
+    background-color: #09D3FE!important;
+}
+
+.blue-button:hover {
+    background-color: #ffffff!important;
+    color: #09D3FE!important;
+    border: 2px solid #09D3FE!important;
+}
+
+.blue-button a {
+    color: #FFF!important;
+    text-decoration: none
+}
+
+.blue-button a:hover {
+    color: #09D3FE!important;
+}
+
+.header-center-big {
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 500px) {
+    .dropdown-menu {
+        margin-top: 0;
+    }
+
+    .navbar {
+        margin-left: 30%;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .scroll-down{
+        display: block;
+        color: #F10CD7;
+        position: relative;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .cont {
+        flex-direction: column;
+    }
+
+    .cont .card {
+        width: 320px;
+        height: 500px;
+    }
+    
+    .cont .card h2 {
+        top: 25px;
+        font-size: 22px;
+        right: 40px;
+    }
+    
+    .cont .card p {
+        font-size: 13px;
+        bottom: 80px;
+        right: 10px;
+    }
+    
+    .cont .card span{
+        font-size: 23px;
+        top: 430px;
+        right: 120px;
+        writing-mode:horizontal-tb;
+    }
+    
+    .cont .card .pic { 
+        width: 290px;
+        height: 400px;
+    }
+    
+    .cont .card:hover button {
+        transform: scale(20);
+    }
+
+    .cont .card:hover h2 {
+        font-size: 20px;
+        top: 260px;
+    }
+
+    .cont .card:hover p {
+        width: 290px;
+        opacity: 1;
+        right: 34px;
+    }
+
+    .cont .card:hover .pic {
+        width: 290px;
+        height: 480px;
+    }
+
+    .container .card2:hover h2 {
+        top: 225px;
+    }
+
+    .price-list-col {
+        border-right: #ffffff 1px solid;
+    }
+
+    .card-container button{
+        width: 180px;
+    }
+}
+
+/* portrait phones */
+@media only screen and (min-width: 501px) and (max-width: 767px) {
+    .container-inner {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .dropdown-menu {
+        margin-top: 0;
+    }
+
+    .scroll-down{
+        display: block;
+        color: #F10CD7;
+        position: relative;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .call-me {
+        display: inline-block;
+    }    
+
+    .bounce-div {
+        animation: none;
+    }
+
+    .nav-link {
+        margin-left: 15px;
+    }
+
+    #cookiePopup {
+        width: 100%;
+    }
+
+    .hide2 {
+        bottom: 2em;
+        right: 0;
+    }
+
+    .show2{
+        right: 0;
+        bottom: 0; 
+    }
+
+    .navbar {
+        margin-left: 30%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .cont {
+        flex-direction: column;
+    }
+
+    .cont .card {
+        width: 500px;
+        height: 250px;
+    }
+    
+    .cont .card h2 {
+        bottom: 25px;
+        font-size: 30px;
+        right: 100px;
+    }
+    
+    .cont .card p {
+        font-size: 12px;
+        bottom: 15px;
+        right: 100px;
+    }
+    
+    .cont .card span{
+        font-size: 20px;
+        top: 50px;
+        right: 20px;
+    }
+    
+    .cont .card .pic { 
+        width: 380px;
+        height: 240px;
+    }
+    
+    .cont .card button {
+        right: 20px;
+        bottom: 40px;
+        width: 25px;
+        height: 25px;
+    }
+    
+    .cont .card:hover button {
+        transform: scale(40);
+    }
+
+    .cont .card:hover h2 {
+        font-size: 35px;
+        bottom: 100px;
+        right: 50px; 
+    }
+
+    .cont .card:hover .pic {
+        width: 480px;
+    }
+
+    .price-list-col {
+        border-right: #ffffff 1px solid;
+    }
+
+    .card-container button{
+        width: 200px;
+    }
+
+  }
+
+  /* tablets */
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .cont {
+        flex-direction: column;
+    }
+
+    .card-container button{
+        width: 200px;
+    }
+
+    .cont .card {
+        width: 700px;
+        height: 300px;
+    }
+    .price-list-col {
+        border-right: #ffffff 1px solid;
+    }
+
+  }
+
+  /* laptops */
+  @media only screen and (min-width: 992px) and (max-width:1199px) {
+    .cont .card {
+        width: 900px;
+        height: 400px;
+    }
+    
+    .cont {
+        flex-direction: column;
+    }
+    
+    .cont .card h2 {
+        bottom: 40px;
+        right: 180px;
+    }
+    
+    .cont .card .pic { 
+        width: 770px;
+        height: 380px;
+    }
+
+  }
+
+  /* large device */
+  @media only screen and (min-width: 1200px) and (max-width:1420px) {
+    .cont .card {
+        width: 1100px;
+        height: 500px;
+        padding: 15px;
+    }
+
+    .cont {
+        flex-direction: column;
+    }
+
+    .cont .card h2 {
+        bottom: 100px;
+        right: 250px;
+    }
+    
+    .cont .card p {
+        bottom: 30px;
+        right: 160px;
+    }
+    
+    .cont .card span{
+        top: 130px;
+        right: 30px;
+    }
+    
+    .cont .card .pic { 
+        width: 900px;
+        height: 460px;
+    }
+    
+    .cont .card button {
+        right: 40px;
+        bottom: 60px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .cont .card2:hover h2 {
+        bottom: 160px;
+    }
+    
+    .cont .card:hover .pic {
+        filter: grayscale(0);
+        width: 1065px;
+    }
+  }
