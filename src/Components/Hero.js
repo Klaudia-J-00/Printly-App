@@ -47,6 +47,7 @@ const Hero = () => {
                     <Row className="mx-2">
                     <Col md={4} lg={3}>
                         <img src="img/poster.png" className="img-fluid poster" alt='poster'/>
+                        <span className='smol d-flex justify-content-center text-center'>Powyższa grafika została stworzona w celach prezentacyjnych, nie dotyczy wyprzedaży.</span>
                     </Col>
                     <Col className="about" md={8}>
                         <h3>Witamy w Printly - Twoim zaufanym partnerze w dziedzinie druku reklamowego i personalizowanych rozwiązań wizualnych! </h3>

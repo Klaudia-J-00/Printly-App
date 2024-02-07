@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const MyNavbar = () => {
     return (
-        <Container className="text-center">
+        <Container className="text-center nav-container">
             <div className="row mt-5" id="navbar-grid">
                 <div className="col-md-4 col-lg-3">
                     <Link to="/"><img src="img/logo.png" className="img-fluid mt-3" alt="Logo" /></Link>
@@ -16,21 +16,21 @@ const MyNavbar = () => {
                             <Navbar.Collapse id="navbarNav">
                                 <Nav>
                                     <NavDropdown title="USŁUGI" id="hover-dropdown">
-                                        <NavDropdown.Item href="services.html">WSZYSTKIE USŁUGI</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/services">WSZYSTKIE USŁUGI</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="services/baners.html">BANERY</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/baners">BANERY</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="services/posters.html">PLAKATY</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/posters">PLAKATY</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="services/stickers.html">NAKLEJKI</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/stickers">NAKLEJKI</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="services/aboards.html">POTYKACZE</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/aboards">POTYKACZE</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="services/rollups.html">ROLL-UPY</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/rollups">ROLL-UPY</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item href="services/photowallpapers.html">FOTOTAPETY</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/magnets">MAGNESY</NavDropdown.Item>
                                     </NavDropdown>
-                                    <Nav.Link href="/price-list">CENNIK</Nav.Link>
+                                    <Nav.Link as={Link} to="/price-list">CENNIK</Nav.Link>
                                     <Nav.Link as={Link} to="/contact">KONTAKT</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>

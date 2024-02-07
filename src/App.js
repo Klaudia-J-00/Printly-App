@@ -8,6 +8,8 @@ import Policy from "./Components/Policy";
 import Terms from "./Components/Terms";
 import CookieModal from "./Components/CookieModal";
 import PriceList from "./Components/PriceList";
+import Services from "./Components/Services";
+import Baners from "./Components/Baners";
 import "./App.css";
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path="/policy" element={<Policy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/price-list" element={<PriceList />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/baners" element={<Baners />} />
         {/* Dodaj tutaj inne trasy */}
       </Routes>
       <Footer />

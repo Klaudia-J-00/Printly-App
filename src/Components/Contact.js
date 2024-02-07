@@ -64,8 +64,9 @@ const Contact = () => {
   const handleCloseCaptcha = () => setShowModalCaptcha(false);
 
   return (
+    <div className="about">
     <Container className="mt-5 contact-form">
-      <Row className="position-relative">
+      <Row>
         <Col className="text-center mt-5 contact-form p-5">
           <h1>Skontaktuj się z nami</h1>
           <h3>
@@ -188,7 +189,7 @@ const Contact = () => {
         <Col lg={2} md={6} className="contact-info p-3 bounce-div">
           <FontAwesomeIcon icon={faLocationDot} className="contact-icon" />
           <h5>Odwiedź nas tutaj:</h5>
-          <p>
+          <p className="p-text">
             ul. Stawowa 5<br />
             42-274 Konopiska
           </p>
@@ -198,7 +199,7 @@ const Contact = () => {
           <h5>
             Napisz wiadomość <br /> e-mail:
           </h5>
-          <p>kontakt@printly.net.pl</p>
+          <p className="p-text">kontakt@printly.net.pl</p>
         </Col>
         <Col lg={2} md={6} className="contact-info p-3 bounce-div">
           <FontAwesomeIcon icon={faPhone} className="contact-icon" />
@@ -224,6 +225,7 @@ const Contact = () => {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 
