@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 
 const Baners = () => {
   const [grams, setGrams] = useState("160");
@@ -10,31 +10,80 @@ const Baners = () => {
   const [lamination, setLamination] = useState(false);
   const [eyelets, setEyelets] = useState("0");
   const [welding, setWelding] = useState(false);
+  const [project, setProject] = useState(false);
+  const [discount, setDiscount] = useState("");
+  const [total, setTotal] = useState(0);
+  const [pricePerItem, setPricePerItem] = useState(0);
+  const [isCalculated, setIsCalculated] = useState(false);
+  const [withProject, setWithProject] = useState(false);
 
-  const priceElement = useRef(null);
-  const priceElement2 = useRef(null);
+  const calculatePrice = () => {
+    //Stale
+    const price_160g = 11; // Cena za 1m^2 przy gramaturze 160g (krotsza)
+    const price_400g = 12; // Cena za 1m^2 przy gramaturze 400g (dluzsza)
+    const discount_5 = 0.1; // Rabat 10% od ceny końcowej powyżej 5 banerów
+    const discount_10 = 0.2; // Rabat 20% od ceny końcowej powyżej 10 banerów
+    const priceEyelet = 1; // Cena za 1 oczko
+    const projectPrice = 200; // Cena za projekt graficzny
 
-  const calculatePrice = () => {};
+    //Obliczenia
+    const priceForSquareMeter = grams === "160" ? price_160g : price_400g; //cena Za metr kwadratowy w zaleznosci od gramatury
+    let widthM = width / 100; //wysokosc w metrach
+    let heightM = height / 100; //szerokosc w metrach
+    let area = widthM * heightM; //pole powierzchni banera
+    let perimeter = 2 * (widthM + heightM); //obwod banera
 
-  useEffect(() => {
-    calculatePrice();
-  }, [
-    grams,
-    quantity,
-    width,
-    height,
-    lamination,
-    eyelets,
-    welding,
-  ]);
-
-  useEffect(() => {
-    if (quantity > 1) {
-      priceElement2.current.style.display = "block";
-    } else {
-      priceElement2.current.style.display = "none";
+    let price = area * priceForSquareMeter; //cena za baner bez dodatków
+    function metersToCentimeters(meters) {
+      return meters * 100;
     }
-  }, [quantity]);
+
+    const perimeterInCentimeters = metersToCentimeters(perimeter); //obwod w centymetrach
+
+    if (lamination) {
+      price += area * 0.1; //cena za baner z laminacja -> 10 gr wiecej za metr kwadratowy laminacji
+    }
+
+    if (eyelets === "50" || eyelets === "25" || eyelets === "100") {
+      const eyeletsCount = Math.ceil(
+        perimeterInCentimeters / parseInt(eyelets)
+      ); //ilosc oczek (obwod banera dzilimy przez odleglosc miedzy oczkami zeby wyliczyc liczbe oczek)
+      price += priceEyelet * eyeletsCount; //cena za oczka
+    }
+
+    if (welding) {
+      price += perimeter * 0.5; //cena za zgrzewanie brzegow -> 50 gr za metr zgrzewu
+    }
+
+    const priceInk = 2 * area; //cena za tusz -> 2zl za metr kwadratowy
+    const priceElectricity = 0.5 * area; //cena za prad -> 50 gr za metr kwadratowy
+    const priceWork = 5 * area; //cena za prace -> 5zl za metr kwadratowy
+    price += priceInk + priceElectricity + priceWork; //cena za tusz, prad i prace wliczona do ceny koncowej
+
+    if (quantity > 10) {
+      price -= price * discount_10; //rabat powyzej 10 sztuk
+      setDiscount(" (zastosowano -20% przy wyborze powyżej 10 sztuk)");
+    } else if (quantity > 5) {
+      price -= price * discount_5; //rabat powyzej 5 sztuk
+      setDiscount(" (zastosowano -10% przy wyborze powyżej 5 sztuk)");
+    } else {
+      setDiscount("");
+    }
+
+    let total = price * quantity; //cena koncowa
+
+    if (project) {
+      setWithProject(true);
+      total += projectPrice; //cena z wliczonym projektem graficznym
+      price += projectPrice/quantity; //cena z wliczonym projektem graficznym podzielonym na sztuki
+    } else {
+      setWithProject(false);
+    }
+    
+    setTotal(total);
+    setPricePerItem(price);
+    setIsCalculated(true);
+  };
 
   return (
     <div className="about">
@@ -43,7 +92,7 @@ const Baners = () => {
           <Col md={6}>
             <img
               src="/img/baner2.png"
-              class="img-fluid rounded-start"
+              className="img-fluid rounded-start"
               alt="baner"
             />
             <h5 className="card-title">BANERY</h5>
@@ -133,7 +182,7 @@ const Baners = () => {
             <p className="card-text-2">
               <b>
                 W przypadku pytań lub potrzeby indywidualnej pomocy prosimy o{" "}
-                <Link to="/contact" class="link">
+                <Link to="/contact" className="link">
                   kontakt
                 </Link>
                 . Dziękujemy za zainteresowanie naszą ofertą i mamy nadzieję, że
@@ -206,7 +255,7 @@ const Baners = () => {
                 <br />
                 <br />
 
-                <label htmlFor="lamination">Laminacja: </label>
+                <label htmlFor="lamination">Laminacja:&nbsp;</label>
                 <input
                   type="checkbox"
                   name="lamination"
@@ -215,7 +264,9 @@ const Baners = () => {
                   checked={lamination}
                   onChange={(e) => setLamination(e.target.checked)}
                 />
-                <span id="laminationStatus">{lamination ? "Tak" : "Nie"}</span>
+                <span id="laminationStatus">
+                  {lamination ? " Tak" : " Nie"}
+                </span>
                 <br />
                 <br />
 
@@ -234,7 +285,7 @@ const Baners = () => {
                 </select>
                 <br />
 
-                <label htmlFor="welding">Zgrzane brzegi: </label>
+                <label htmlFor="welding">Zgrzane brzegi:&nbsp;</label>
                 <input
                   type="checkbox"
                   name="welding"
@@ -243,7 +294,20 @@ const Baners = () => {
                   checked={welding}
                   onChange={(e) => setWelding(e.target.checked)}
                 />
-                <span id="weldingStatus">{welding ? "Tak" : "Nie"}</span>
+                <span id="weldingStatus">{welding ? " Tak" : " Nie"}</span>
+
+                <br />
+                <label htmlFor="project">Projekt graficzny:&nbsp;</label>
+                <input
+                  type="checkbox"
+                  name="project"
+                  value="project"
+                  id="project"
+                  checked={project}
+                  onChange={(e) => setProject(e.target.checked)}
+                />
+                <span id="projectStatus">{project ? " Tak" : " Nie"}</span>
+
                 <br />
                 <br />
 
@@ -257,22 +321,42 @@ const Baners = () => {
                 <br />
                 <br />
 
-                <span id="price">
-                  Cena: Wprowadź dane i kliknij{" "}
-                  <a href="#here" className="link">
-                    oblicz
-                  </a>{" "}
-                  by poznać cenę
-                </span>
-                <span id="price2">Cena za jedną sztukę: </span>
+                {!isCalculated ? (
+                  <span id="price">
+                    Cena: Wprowadź dane i kliknij{" "}
+                    <a href="#here" className="link">
+                      oblicz
+                    </a>{" "}
+                    by poznać cenę
+                  </span>
+                ) : (
+                  <>
+                    <p id="price">
+                      Cena: {total.toFixed(2)} zł{" "}
+                      {discount && (
+                        <span style={{ color: "red" }}>{discount}</span>
+                      )}
+                    </p>
+                    {quantity > 1 && (
+                      <p id="pricePerItem">
+                        Cena za jedną sztukę: {pricePerItem.toFixed(2)} zł
+                      </p>
+                    )}
+                    {withProject && (
+                      <p id="pricePerItem">
+                        Cena za projekt graficzny: 200 zł
+                      </p>
+                    )}
+                  </>
+                )}
               </form>
-              <p class="baners-list">
+              <p className="baners-list">
                 Proszę mieć na uwadze, że przedstawiona cena jest szacunkowa i
                 podlega drobnym zmianom. W celu uzyskania dokładnej oferty
                 prosimy o{" "}
-                <a href="/contact.html" class="link">
+                <Link to="/contact" className="link">
                   kontakt
-                </a>
+                </Link>
                 .
               </p>
             </div>

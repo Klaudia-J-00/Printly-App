@@ -69,7 +69,7 @@ const PriceList = () => {
           </p>
         </Col>
         <Col lg={4} className="price-list-col p-3 px-5">
-          <h3 class="header-center-white">
+          <h3 className="header-center-white">
             <FontAwesomeIcon icon={faDollarSign} />
           </h3>
           <p className="white-list">

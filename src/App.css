@@ -5,6 +5,15 @@ body {
     font-family: 'Poppins', sans-serif!important;
 }
 
+.cookies-text {
+    color: white;
+    font-size: 1.3em;
+}
+
+.cookies-link {
+    color: #F10CD7!important;
+}
+
 .container-inner {
     margin-right: 50px;
     margin-left: 50px;

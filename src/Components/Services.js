@@ -130,7 +130,7 @@ const Services = () => {
           <Col sm={4}>
             <img
               src="img/a-board.jpg"
-              class="img-fluid rounded-start"
+              className="img-fluid rounded-start"
               alt="a-board"
             />
           </Col>
@@ -140,7 +140,7 @@ const Services = () => {
           <Col sm={4}>
             <img
               src="img/roll-up.png"
-              class="img-fluid rounded-start"
+              className="img-fluid rounded-start"
               alt="roll-up"
             />
           </Col>
@@ -179,7 +179,7 @@ const Services = () => {
           <Col sm={4}>
             <img
               src="img/komura.png"
-              class="img-fluid rounded-start"
+              className="img-fluid rounded-start"
               alt="magnets"
             />
           </Col>

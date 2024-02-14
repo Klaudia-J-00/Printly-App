@@ -58,7 +58,7 @@ const Footer = () => {
             </Col>
             <Col md={2}><h5>Cookies</h5>
               <p>Dowiedz się dlaczego ta witryna korzysta z ciasteczek. </p>
-              <button id="cookiesClick">Kliknij</button>
+              <button><Link to="/cookies">Kliknij</Link></button>
             </Col>
             <Col md={2}><h5>Polityka prywatnosci</h5>
               <p>Zapoznaj się z naszą polityką prywatności.</p>

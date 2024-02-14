@@ -10,6 +10,12 @@ import CookieModal from "./Components/CookieModal";
 import PriceList from "./Components/PriceList";
 import Services from "./Components/Services";
 import Baners from "./Components/Baners";
+import Cookies from "./Components/Cookies";
+import Posters from "./Components/Posters";
+import Stickers from "./Components/Stickers";
+import Aboards from "./Components/Aboards";
+import Rollups from "./Components/Rollups";
+import Magnets from "./Components/Magnets";
 import "./App.css";
 
 function App() {
@@ -25,7 +31,12 @@ function App() {
         <Route path="/price-list" element={<PriceList />} />
         <Route path="/services" element={<Services />} />
         <Route path="/baners" element={<Baners />} />
-        {/* Dodaj tutaj inne trasy */}
+        <Route path="/cookies" element={<Cookies />} />
+        <Route path="/posters" element={<Posters />} />
+        <Route path="/stickers" element={<Stickers />} />
+        <Route path="/aboards" element={<Aboards />} />
+        <Route path="/rollups" element={<Rollups />} />
+        <Route path="/magnets" element={<Magnets />} />
       </Routes>
       <Footer />
     </Router>
