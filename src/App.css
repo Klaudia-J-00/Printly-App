@@ -513,6 +513,60 @@ footer .stars i {
     right: 0;
 }
 
+.price-list-col-mobile {
+   padding: 23px; 
+    background-color: #fff;
+    color: #000;
+    border-radius: 40px;
+}
+
+.price-list-mobile { 
+    margin-top: 100px;
+    background-color: #09D3FE;
+    border-radius: 40px;
+    padding: 20px;
+    color: #FFF;
+    padding-bottom: 40px;
+}
+
+.price-list-mobile button {
+    margin-top: 20px!important;
+    background-color: #F10CD7;
+    width: 180px;
+    color: #FFF!important;
+    font-family: Poppins;
+    font-weight: 600;
+    padding: 15px;
+    text-decoration: none;
+    width: 300px;
+    border: 2px solid white;
+    border-radius: 30px;
+    position: relative;
+    display: block;
+    margin: auto;
+    justify-content: center;
+}
+
+.price-list-mobile a {
+    color: #FFF;
+    font-family: Poppins;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.price-list-mobile a:hover {
+    color: #F10CD7;
+    font-family: Poppins;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.price-list-mobile button:hover {
+    background-color: #FFF;
+    border: 2px solid #F10CD7;
+    color: #F10CD7!important;
+}
+
 .policy p {
     color: #A4A4A4;
     font-family: Poppins;
@@ -964,8 +1018,13 @@ footer .stars i {
 @media only screen and (max-width: 500px) {
     .dropdown-menu {
         margin-top: 0;
+        margin-left: -35px;
         z-index: 1000;
         position: relative;
+    }
+
+    .contact-cont {
+        margin-bottom: 200px;
     }
 
     .custom-dropdown-container {
@@ -974,7 +1033,8 @@ footer .stars i {
     
 
     .navbar {
-        margin-left: 30%;
+        margin-left: 25%;
+        padding-left: 15%;
         width: 100%;
         height: 100%;
     }
@@ -1052,15 +1112,42 @@ footer .stars i {
     .card-container button{
         width: 180px;
     }
+
+    .info2 {
+        margin-top: 40px!important;
+    }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 575px) {
+    .navbar {
+        margin-left: 30%;
+        width: 100%;
+        height: 100%;
+        padding-left: 25%;
+    }
+
+    .contact-cont {
+        margin-bottom: 200px;
+    }
 }
 
 /* portrait phones */
-@media only screen and (min-width: 501px) and (max-width: 767px) {
+@media only screen and (min-width: 576px) and (max-width: 767px) {
     .container-inner {
         margin-right: 10px;
         margin-left: 10px;
     }
 
+    .contact-cont {
+        margin-bottom: 200px;
+    }
+
+    .navbar {
+        margin-left: 30%;
+        width: 100%;
+        height: 100%;
+    }
+    
     .dropdown-menu {
         margin-top: 0;
         z-index: 1000;

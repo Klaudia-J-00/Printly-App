@@ -185,7 +185,7 @@ const Contact = () => {
           </h3>
         </Col>
       </Row>
-      <Row className="text-center">
+      <Row className="text-center contact-cont">
         <Col lg={2} md={6} className="contact-info p-3 bounce-div">
           <FontAwesomeIcon icon={faLocationDot} className="contact-icon" />
           <h5>Odwiedź nas tutaj:</h5>
@@ -194,14 +194,14 @@ const Contact = () => {
             42-274 Konopiska
           </p>
         </Col>
-        <Col lg={2} md={6} className="contact-info p-3 bounce-div">
+        <Col lg={2} md={6} className="contact-info p-3 bounce-div info2">
           <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
           <h5>
             Napisz wiadomość <br /> e-mail:
           </h5>
           <p className="p-text">kontakt@printly.net.pl</p>
         </Col>
-        <Col lg={2} md={6} className="contact-info p-3 bounce-div">
+        <Col lg={2} md={6} className="contact-info p-3 bounce-div info2">
           <FontAwesomeIcon icon={faPhone} className="contact-icon" />
           <h5>Zadzwoń pod podany numer telefonu:</h5>
           <p>+48 575-254-057</p>
@@ -211,7 +211,7 @@ const Contact = () => {
             </a>
           </button>
         </Col>
-        <Col lg={2} md={6} className="contact-info p-3 bounce-div">
+        <Col lg={2} md={6} className="contact-info p-3 bounce-div info2">
           <FontAwesomeIcon
             icon={faFacebookMessenger}
             className="contact-icon"

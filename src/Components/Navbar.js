@@ -1,19 +1,17 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const MyNavbar = () => {
     return (
         <Container className="text-center nav-container">
-            <div className="row mt-5" id="navbar-grid">
-                <div className="col-md-4 col-lg-3">
+            <Row className="mt-5">
+                <Col md={4} lg={3} sm={12}>
                     <Link to="/"><img src="img/logo.png" className="img-fluid mt-3" alt="Logo" /></Link>
-                </div>
-                <div className="col-8">
+                </Col>
+                <Col xs={8}>
                     <Navbar expand="sm">
-                        <Container fluid>
-                            <Navbar.Toggle aria-controls="navbarNav" />
-                            <Navbar.Collapse id="navbarNav">
+                        <Container> 
                                 <Nav>
                                     <NavDropdown title="USŁUGI" id="hover-dropdown">
                                         <NavDropdown.Item as={Link} to="/services">WSZYSTKIE USŁUGI</NavDropdown.Item>
@@ -33,11 +31,10 @@ const MyNavbar = () => {
                                     <Nav.Link as={Link} to="/price-list">CENNIK</Nav.Link>
                                     <Nav.Link as={Link} to="/contact">KONTAKT</Nav.Link>
                                 </Nav>
-                            </Navbar.Collapse>
                         </Container>
                     </Navbar>
-                </div>
-            </div>
+                </Col>
+            </Row>
         </Container>
     );
 };
