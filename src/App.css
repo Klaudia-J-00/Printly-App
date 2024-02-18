@@ -975,6 +975,38 @@ footer .stars i {
     justify-content: center;
     align-items: center;
 }
+.services-h3 {
+    color: #FFF;
+}
+
+.arrow-to {
+    color: #09D3FE!important;
+    font-size: large;
+}
+
+.arrow-to:hover {
+    color: #F10CD7!important;
+}
+
+.rounded-left-top {
+    border-top-left-radius: 40px!important;
+}
+
+.rounded-left {
+    border-top-left-radius: 30px!important;
+    border-bottom-left-radius: 30px!important;
+}
+
+.rounded-right {
+    border-top-right-radius: 30px!important;
+    border-bottom-right-radius: 30px!important;
+}
+
+.rounded {
+    border-top-left-radius: 40px!important;
+    border-top-right-radius: 40px!important;
+    margin-bottom: 15px;
+}
 
 .blue-button {
     background-color: #09D3FE!important;
