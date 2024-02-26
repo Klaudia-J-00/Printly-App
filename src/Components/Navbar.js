@@ -9,7 +9,7 @@ const MyNavbar = () => {
                 <Col md={4} lg={3} sm={12}>
                     <Link to="/"><img src="img/logo.png" className="img-fluid mt-3" alt="Logo" /></Link>
                 </Col>
-                <Col xs={8}>
+                <Col xs={8} lg={9}>
                     <Navbar expand="sm">
                         <Container> 
                                 <Nav>

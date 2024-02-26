@@ -7,20 +7,20 @@ import { faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 const Rollups = () => {
   const [quantity, setQuantity] = useState(1);
-  const [dimensions, setDimensions] = useState("small");
+  const [dimensions, setDimensions] = useState("mid");
   const [project, setProject] = useState(false);
   const [discount, setDiscount] = useState("");
   const [total, setTotal] = useState(0);
   const [pricePerItem, setPricePerItem] = useState(0);
   const [isCalculated, setIsCalculated] = useState(false);
   const [withProject, setWithProject] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth >= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth > 990);
 
   const calculatePrice = () => {
-    const discount_5 = 0.1; // 10% rabatu od 5 sztuk
-    const discount_10 = 0.2; // 20% rabatu od 10 sztuk
+    const discount_5 = 0.05; // 10% rabatu od 5 sztuk
+    const discount_10 = 0.1; // 20% rabatu od 10 sztuk
     let pricePerSquareMeter = 10;
-    const projectPrice = 200;
+    const projectPrice = 100;
     let area = 0;
     let priceRollUp = 0;
 
@@ -29,7 +29,7 @@ const Rollups = () => {
       priceRollUp = 100;
     } else if (dimensions === "mid") {
       area = (85 * 200) / 10000;
-      priceRollUp = 120;
+      priceRollUp = 150;
     } else {
       area = (100 * 200) / 10000;
       priceRollUp = 150;
@@ -45,10 +45,10 @@ const Rollups = () => {
 
     if (quantity > 10) {
       price -= price * discount_10; //rabat powyzej 10 sztuk
-      setDiscount(" (zastosowano -20% przy wyborze powyżej 10 sztuk)");
+      setDiscount(" (zastosowano -10% przy wyborze powyżej 10 sztuk)");
     } else if (quantity > 5) {
       price -= price * discount_5; //rabat powyzej 5 sztuk
-      setDiscount(" (zastosowano -10% przy wyborze powyżej 5 sztuk)");
+      setDiscount(" (zastosowano -5% przy wyborze powyżej 5 sztuk)");
     } else {
       setDiscount("");
     }
@@ -69,7 +69,7 @@ const Rollups = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth > 990);
     };
 
     window.addEventListener("resize", handleResize);
@@ -97,12 +97,13 @@ const Rollups = () => {
                   <b>Czym są roll-upy?</b>
                   <br />
                   Roll-upy to popularne i efektywne narzędzie marketingowe,
-                  wykorzystywane w wielu dziedzinach działalności. Są to przenośne
-                  banery, które charakteryzują się łatwym montażem i demontażem.
-                  Podstawowym elementem roll-upu jest elastyczny materiał drukowany,
-                  który można zwijać i rozkładać w specjalnym mechanizmie. Dzięki
-                  temu są niezwykle wygodne w transporcie i przechowywaniu, a także
-                  pozwalają na wielokrotne wykorzystanie.
+                  wykorzystywane w wielu dziedzinach działalności. Są to
+                  przenośne banery, które charakteryzują się łatwym montażem i
+                  demontażem. Podstawowym elementem roll-upu jest elastyczny
+                  materiał drukowany, który można zwijać i rozkładać w
+                  specjalnym mechanizmie. Dzięki temu są niezwykle wygodne w
+                  transporcie i przechowywaniu, a także pozwalają na wielokrotne
+                  wykorzystanie.
                   <br />
                   <br />
                   <b>Dlaczego warto skorzystać z naszych roll-upów?</b>
@@ -112,25 +113,26 @@ const Rollups = () => {
                     <b>Wysoka jakość druku: </b>
                     <br />
                     Nasza drukarnia wykorzystuje najnowocześniejsze technologie
-                    drukarskie, zapewniając doskonałą jakość wydruku. Oferujemy żywe
-                    kolory, ostre detale i wysoką rozdzielczość, co sprawia, że
-                    Twoje grafiki przyciągają wzrok klientów.
+                    drukarskie, zapewniając doskonałą jakość wydruku. Oferujemy
+                    żywe kolory, ostre detale i wysoką rozdzielczość, co
+                    sprawia, że Twoje grafiki przyciągają wzrok klientów.
                   </li>
                   <li>
                     <b>Solidna konstrukcja:</b>
                     <br />
-                    Nasze roll-upy charakteryzują się trwałą i stabilną konstrukcją.
-                    Mechanizm zwijania i materiały, z których są wykonane,
-                    gwarantują długą żywotność produktu, co pozwoli Ci wielokrotnie
-                    wykorzystać baner na różnych wydarzeniach i promocjach.
+                    Nasze roll-upy charakteryzują się trwałą i stabilną
+                    konstrukcją. Mechanizm zwijania i materiały, z których są
+                    wykonane, gwarantują długą żywotność produktu, co pozwoli Ci
+                    wielokrotnie wykorzystać baner na różnych wydarzeniach i
+                    promocjach.
                   </li>
                   <li>
                     <b>Różnorodność: </b>
-                    <br />W naszej ofercie znajdziesz roll-upy w różnych rozmiarach
-                    i wersjach, aby dopasować je do Twoich indywidualnych potrzeb.
-                    Oferujemy także możliwość druku zarówno jednostronnego, jak i
-                    dwustronnego, co pozwala na maksymalne wykorzystanie przestrzeni
-                    reklamowej.
+                    <br />W naszej ofercie znajdziesz roll-upy w różnych
+                    rozmiarach i wersjach, aby dopasować je do Twoich
+                    indywidualnych potrzeb. Oferujemy także możliwość druku
+                    zarówno jednostronnego, jak i dwustronnego, co pozwala na
+                    maksymalne wykorzystanie przestrzeni reklamowej.
                   </li>
                 </ul>
                 <p>
@@ -143,18 +145,21 @@ const Rollups = () => {
                     <li>Imprezy firmowe i eventy</li>
                     <li>Sklepy i punkty sprzedaży</li>
                   </ul>
-                  Zapraszamy do zamówienia profesjonalnych roll-upów, które stanowią
-                  efektywne narzędzie reklamowe, pozwalające w atrakcyjny sposób
-                  prezentować Twoją markę i przekazywać kluczowe informacje.
+                  Zapraszamy do zamówienia profesjonalnych roll-upów, które
+                  stanowią efektywne narzędzie reklamowe, pozwalające w
+                  atrakcyjny sposób prezentować Twoją markę i przekazywać
+                  kluczowe informacje.
                 </p>
                 <p className="card-text-2">
                   <b>
-                    W przypadku pytań lub potrzeby indywidualnej pomocy prosimy o{" "}
+                    W przypadku pytań lub potrzeby indywidualnej pomocy prosimy
+                    o{" "}
                     <Link to="/contact" className="link">
                       kontakt
                     </Link>
-                    . Dziękujemy za zainteresowanie naszą ofertą i mamy nadzieję, że
-                    wspólnie znajdziemy idealne rozwiązanie dla Twoich potrzeb!
+                    . Dziękujemy za zainteresowanie naszą ofertą i mamy
+                    nadzieję, że wspólnie znajdziemy idealne rozwiązanie dla
+                    Twoich potrzeb!
                   </b>
                 </p>
               </Col>
@@ -188,23 +193,37 @@ const Rollups = () => {
                       value={dimensions}
                       onChange={(e) => setDimensions(e.target.value)}
                     >
-                      <option selected value="small">
-                        80 x 200 cm
+                      <option value="small" disabled>
+                        80 x 200 cm - chwilowo niedostępne
                       </option>
                       <option value="mid">85 x 200 cm</option>
-                      <option value="big">100 x 200 cm</option>
+                      <option value="big" disabled>
+                        100 x 200 cm - chwilowo niedostępne
+                      </option>
                     </select>
                     <br />
+
                     <label htmlFor="project">Projekt graficzny:&nbsp;</label>
-                    <input
-                      type="checkbox"
-                      name="project"
-                      value="project"
-                      id="project"
-                      checked={project}
-                      onChange={(e) => setProject(e.target.checked)}
-                    />
-                    <span id="projectStatus">{project ? " Tak" : " Nie"}</span>
+                    <div onChange={(e) => setProject(e.target.value === "Tak")}>
+                      <input
+                        type="radio"
+                        name="project"
+                        value="Tak"
+                        id="projectYes"
+                        checked={project === true}
+                      />
+                      <label htmlFor="projectYes">Tak</label>
+                      &nbsp;&nbsp;
+                      <input
+                        type="radio"
+                        name="project"
+                        value="Nie"
+                        id="projectNo"
+                        checked={project === false}
+                      />
+                      <label htmlFor="projectNo">Nie</label>
+                    </div>
+
                     <br />
                     <br />
                     <button
@@ -238,14 +257,20 @@ const Rollups = () => {
                           </p>
                         )}
                         {withProject && (
-                          <p id="pricePerItem">Cena za projekt graficzny: 200 zł</p>
+                          <p id="pricePerItem">
+                            Cena za projekt graficzny: 100 zł
+                            <span className="info-project">
+                                  &nbsp;(może się różnić w zależności od
+                                  złożoności projektu)
+                                </span>
+                          </p>
                         )}
                       </>
                     )}
                     <p className="baners-list pt-4">
-                      Proszę mieć na uwadze, że przedstawiona cena jest szacunkowa i
-                      podlega drobnym zmianom. W celu uzyskania dokładnej oferty
-                      prosimy o{" "}
+                      Proszę mieć na uwadze, że przedstawiona cena jest
+                      szacunkowa i podlega drobnym zmianom. W celu uzyskania
+                      dokładnej oferty prosimy o{" "}
                       <Link to="/contact" className="link">
                         kontakt
                       </Link>
@@ -256,7 +281,8 @@ const Rollups = () => {
               </Col>
             </Row>
           </Container>
-        </div>) : (
+        </div>
+      ) : (
         <>
           <Container className="price-list-mobile">
             <Row>
@@ -268,19 +294,25 @@ const Rollups = () => {
                 />
                 <h3 className="header-center-big mb-5">ROLL-UPY</h3>
                 <span className="scroll-down">
-                  <b>Zjedź na dół by skorzystać z kalkulatora cen.&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                  <a className="arrow-to" href="#here"><FontAwesomeIcon icon={faCircleArrowDown} /></a>
+                  <b>
+                    Zjedź na dół by skorzystać z kalkulatora
+                    cen.&nbsp;&nbsp;&nbsp;&nbsp;
+                  </b>
+                  <a className="arrow-to" href="#here">
+                    <FontAwesomeIcon icon={faCircleArrowDown} />
+                  </a>
                 </span>
                 <p className="card-text-2">
                   <b>Czym są roll-upy?</b>
                   <br />
                   Roll-upy to popularne i efektywne narzędzie marketingowe,
-                  wykorzystywane w wielu dziedzinach działalności. Są to przenośne
-                  banery, które charakteryzują się łatwym montażem i demontażem.
-                  Podstawowym elementem roll-upu jest elastyczny materiał drukowany,
-                  który można zwijać i rozkładać w specjalnym mechanizmie. Dzięki
-                  temu są niezwykle wygodne w transporcie i przechowywaniu, a także
-                  pozwalają na wielokrotne wykorzystanie.
+                  wykorzystywane w wielu dziedzinach działalności. Są to
+                  przenośne banery, które charakteryzują się łatwym montażem i
+                  demontażem. Podstawowym elementem roll-upu jest elastyczny
+                  materiał drukowany, który można zwijać i rozkładać w
+                  specjalnym mechanizmie. Dzięki temu są niezwykle wygodne w
+                  transporcie i przechowywaniu, a także pozwalają na wielokrotne
+                  wykorzystanie.
                   <br />
                   <br />
                   <b>Dlaczego warto skorzystać z naszych roll-upów?</b>
@@ -290,25 +322,26 @@ const Rollups = () => {
                     <b>Wysoka jakość druku: </b>
                     <br />
                     Nasza drukarnia wykorzystuje najnowocześniejsze technologie
-                    drukarskie, zapewniając doskonałą jakość wydruku. Oferujemy żywe
-                    kolory, ostre detale i wysoką rozdzielczość, co sprawia, że
-                    Twoje grafiki przyciągają wzrok klientów.
+                    drukarskie, zapewniając doskonałą jakość wydruku. Oferujemy
+                    żywe kolory, ostre detale i wysoką rozdzielczość, co
+                    sprawia, że Twoje grafiki przyciągają wzrok klientów.
                   </li>
                   <li>
                     <b>Solidna konstrukcja:</b>
                     <br />
-                    Nasze roll-upy charakteryzują się trwałą i stabilną konstrukcją.
-                    Mechanizm zwijania i materiały, z których są wykonane,
-                    gwarantują długą żywotność produktu, co pozwoli Ci wielokrotnie
-                    wykorzystać baner na różnych wydarzeniach i promocjach.
+                    Nasze roll-upy charakteryzują się trwałą i stabilną
+                    konstrukcją. Mechanizm zwijania i materiały, z których są
+                    wykonane, gwarantują długą żywotność produktu, co pozwoli Ci
+                    wielokrotnie wykorzystać baner na różnych wydarzeniach i
+                    promocjach.
                   </li>
                   <li>
                     <b>Różnorodność: </b>
-                    <br />W naszej ofercie znajdziesz roll-upy w różnych rozmiarach
-                    i wersjach, aby dopasować je do Twoich indywidualnych potrzeb.
-                    Oferujemy także możliwość druku zarówno jednostronnego, jak i
-                    dwustronnego, co pozwala na maksymalne wykorzystanie przestrzeni
-                    reklamowej.
+                    <br />W naszej ofercie znajdziesz roll-upy w różnych
+                    rozmiarach i wersjach, aby dopasować je do Twoich
+                    indywidualnych potrzeb. Oferujemy także możliwość druku
+                    zarówno jednostronnego, jak i dwustronnego, co pozwala na
+                    maksymalne wykorzystanie przestrzeni reklamowej.
                   </li>
                 </ul>
                 <p>
@@ -321,22 +354,28 @@ const Rollups = () => {
                     <li>Imprezy firmowe i eventy</li>
                     <li>Sklepy i punkty sprzedaży</li>
                   </ul>
-                  Zapraszamy do zamówienia profesjonalnych roll-upów, które stanowią
-                  efektywne narzędzie reklamowe, pozwalające w atrakcyjny sposób
-                  prezentować Twoją markę i przekazywać kluczowe informacje.
+                  Zapraszamy do zamówienia profesjonalnych roll-upów, które
+                  stanowią efektywne narzędzie reklamowe, pozwalające w
+                  atrakcyjny sposób prezentować Twoją markę i przekazywać
+                  kluczowe informacje.
                 </p>
                 <p className="card-text-2">
                   <b>
-                    W przypadku pytań lub potrzeby indywidualnej pomocy prosimy o{" "}
+                    W przypadku pytań lub potrzeby indywidualnej pomocy prosimy
+                    o{" "}
                     <Link to="/contact" className="link">
                       kontakt
                     </Link>
-                    . Dziękujemy za zainteresowanie naszą ofertą i mamy nadzieję, że
-                    wspólnie znajdziemy idealne rozwiązanie dla Twoich potrzeb!
+                    . Dziękujemy za zainteresowanie naszą ofertą i mamy
+                    nadzieję, że wspólnie znajdziemy idealne rozwiązanie dla
+                    Twoich potrzeb!
                   </b>
                 </p>
                 <hr className="my-4" />
-                <div className="card-body flex-column justify-content-between text-center h-100" id="here">
+                <div
+                  className="card-body flex-column justify-content-between text-center h-100"
+                  id="here"
+                >
                   <h5 className="card-title">Sprawdź cenę</h5>
                   <p className="card-text-3">
                     W przypadku większych zamówień cena jest niższa!
@@ -364,23 +403,37 @@ const Rollups = () => {
                       value={dimensions}
                       onChange={(e) => setDimensions(e.target.value)}
                     >
-                      <option selected value="small">
+                      <option value="small" disabled>
                         80 x 200 cm
                       </option>
                       <option value="mid">85 x 200 cm</option>
-                      <option value="big">100 x 200 cm</option>
+                      <option value="big" disabled>
+                        100 x 200 cm
+                      </option>
                     </select>
                     <br />
+
                     <label htmlFor="project">Projekt graficzny:&nbsp;</label>
-                    <input
-                      type="checkbox"
-                      name="project"
-                      value="project"
-                      id="project"
-                      checked={project}
-                      onChange={(e) => setProject(e.target.checked)}
-                    />
-                    <span id="projectStatus">{project ? " Tak" : " Nie"}</span>
+                    <div onChange={(e) => setProject(e.target.value === "Tak")}>
+                      <input
+                        type="radio"
+                        name="project"
+                        value="Tak"
+                        id="projectYes"
+                        checked={project === true}
+                      />
+                      <label htmlFor="projectYes">Tak</label>
+                      &nbsp;&nbsp;
+                      <input
+                        type="radio"
+                        name="project"
+                        value="Nie"
+                        id="projectNo"
+                        checked={project === false}
+                      />
+                      <label htmlFor="projectNo">Nie</label>
+                    </div>
+
                     <br />
                     <br />
                     <button
@@ -414,14 +467,20 @@ const Rollups = () => {
                           </p>
                         )}
                         {withProject && (
-                          <p id="pricePerItem">Cena za projekt graficzny: 200 zł</p>
+                          <p id="pricePerItem">
+                            Cena za projekt graficzny: 100 zł
+                            <span className="info-project">
+                                  &nbsp;(może się różnić w zależności od
+                                  złożoności projektu)
+                                </span>
+                          </p>
                         )}
                       </>
                     )}
                     <p className="baners-list pt-4">
-                      Proszę mieć na uwadze, że przedstawiona cena jest szacunkowa i
-                      podlega drobnym zmianom. W celu uzyskania dokładnej oferty
-                      prosimy o{" "}
+                      Proszę mieć na uwadze, że przedstawiona cena jest
+                      szacunkowa i podlega drobnym zmianom. W celu uzyskania
+                      dokładnej oferty prosimy o{" "}
                       <Link to="/contact" className="link">
                         kontakt
                       </Link>
@@ -433,7 +492,8 @@ const Rollups = () => {
             </Row>
           </Container>
         </>
-      )} </>
+      )}{" "}
+    </>
   );
 };
 

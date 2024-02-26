@@ -888,6 +888,15 @@ footer .stars i {
 
 
 /* BANERS */ 
+.info-project {
+    color: #F10CD7;
+    font-size: 0.8em;
+}
+
+.error-message {
+    color: #F10CD7;
+    font-size: 0.8em;
+}
 
 .button-banner {
     width: 120px!important;
@@ -1298,6 +1307,15 @@ footer .stars i {
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .cont {
         flex-direction: column;
+    }
+
+    .scroll-down{
+        display: block;
+        color: #F10CD7;
+        position: relative;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 10px;
     }
 
     .card-container button{

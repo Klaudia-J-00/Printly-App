@@ -2,13 +2,12 @@ import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown, faArrowDown19, faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faCircleArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const Baners = () => {
-  const [grams, setGrams] = useState("160");
   const [quantity, setQuantity] = useState(1);
-  const [width, setWidth] = useState("140");
-  const [height, setHeight] = useState(100);
   const [lamination, setLamination] = useState(false);
   const [eyelets, setEyelets] = useState("0");
   const [welding, setWelding] = useState(false);
@@ -18,25 +17,38 @@ const Baners = () => {
   const [pricePerItem, setPricePerItem] = useState(0);
   const [isCalculated, setIsCalculated] = useState(false);
   const [withProject, setWithProject] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth >= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth > 990);
 
-  const calculatePrice = () => {
+  const validationSchema = Yup.object().shape({
+    width: Yup.number()
+      .min(50, "Wartość nie może być mniejsza niż 50cm")
+      .max(140, "Wartość nie może przekroczyć 140cm")
+      .required("Wymagane"),
+    height: Yup.number()
+      .min(50, "Wartość nie może być mniejsza niż 50cm")
+      .max(2000, "Wartość nie może przekroczyć 2000cm")
+      .required("Wymagane"),
+  });
+
+  const calculatePrice = (width, height) => {
     //Stale
-    const price_160g = 11; // Cena za 1m^2 przy gramaturze 160g (krotsza)
-    const price_400g = 12; // Cena za 1m^2 przy gramaturze 400g (dluzsza)
-    const discount_5 = 0.1; // Rabat 10% od ceny końcowej powyżej 5 banerów
-    const discount_10 = 0.2; // Rabat 20% od ceny końcowej powyżej 10 banerów
-    const priceEyelet = 1; // Cena za 1 oczko
-    const projectPrice = 200; // Cena za projekt graficzny
+    const price_160g = 42; // Cena za 1m^2 przy gramaturze 160g (krotsza)
+    //const price_400g = 12; // Cena za 1m^2 przy gramaturze 400g (dluzsza)
+    const discount_5 = 0.05; // Rabat 5% od ceny końcowej powyżej 5 banerów
+    const discount_10 = 0.1; // Rabat 10% od ceny końcowej powyżej 10 banerów
+    const priceEyelet = 0.6; // Cena za 1 oczko 0.50gr
+    const projectPrice = 100; // Cena za projekt graficzny
 
     //Obliczenia
-    const priceForSquareMeter = grams === "160" ? price_160g : price_400g; //cena Za metr kwadratowy w zaleznosci od gramatury
+    //const priceForSquareMeter = grams === "160" ? price_160g : price_400g; //cena Za metr kwadratowy w zaleznosci od gramatury
+    const priceForSquareMeter = price_160g;
     let widthM = width / 100; //wysokosc w metrach
     let heightM = height / 100; //szerokosc w metrach
     let area = widthM * heightM; //pole powierzchni banera
     let perimeter = 2 * (widthM + heightM); //obwod banera
 
     let price = area * priceForSquareMeter; //cena za baner bez dodatków
+
     function metersToCentimeters(meters) {
       return meters * 100;
     }
@@ -44,7 +56,7 @@ const Baners = () => {
     const perimeterInCentimeters = metersToCentimeters(perimeter); //obwod w centymetrach
 
     if (lamination) {
-      price += area * 0.1; //cena za baner z laminacja -> 10 gr wiecej za metr kwadratowy laminacji
+      price += area * 20; //cena za baner z laminacja -> 5 zl wiecej za metr kwadratowy laminacji
     }
 
     if (eyelets === "50" || eyelets === "25" || eyelets === "100") {
@@ -55,7 +67,7 @@ const Baners = () => {
     }
 
     if (welding) {
-      price += perimeter * 0.5; //cena za zgrzewanie brzegow -> 50 gr za metr zgrzewu
+      price += perimeter * 7; //cena za zgrzewanie brzegow -> 7 zł za metr zgrzewu
     }
 
     const priceInk = 2 * area; //cena za tusz -> 2zl za metr kwadratowy
@@ -65,10 +77,10 @@ const Baners = () => {
 
     if (quantity > 10) {
       price -= price * discount_10; //rabat powyzej 10 sztuk
-      setDiscount(" (zastosowano -20% przy wyborze powyżej 10 sztuk)");
+      setDiscount(" (zastosowano -10% przy wyborze powyżej 10 sztuk)");
     } else if (quantity > 5) {
       price -= price * discount_5; //rabat powyzej 5 sztuk
-      setDiscount(" (zastosowano -10% przy wyborze powyżej 5 sztuk)");
+      setDiscount(" (zastosowano -5% przy wyborze powyżej 5 sztuk)");
     } else {
       setDiscount("");
     }
@@ -90,7 +102,7 @@ const Baners = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth > 990);
     };
 
     window.addEventListener("resize", handleResize);
@@ -116,36 +128,37 @@ const Baners = () => {
                 <h5 className="card-title mt-4">BANERY</h5>
                 <p className="card-text-2">
                   Nasze banery są dostępne w różnych rozmiarach i gramaturach,
-                  dzięki czemu możesz wybrać dokładnie to, co najlepiej pasuje do
-                  Twoich potrzeb. Przeczytaj opis zamieszczony poniżej by poznać
-                  szczegóły na temat wykorzystywanych przez nas folii, czym jest
-                  gramatura, oraz dlaczego ważne jest zgrzewanie krawędzi.
+                  dzięki czemu możesz wybrać dokładnie to, co najlepiej pasuje
+                  do Twoich potrzeb. Przeczytaj opis zamieszczony poniżej by
+                  poznać szczegóły na temat wykorzystywanych przez nas folii,
+                  czym jest gramatura, oraz dlaczego ważne jest zgrzewanie
+                  krawędzi.
                   <br />
                   <br />
-                  Banery <b>frontlight</b> są specjalnie zaprojektowane do użytku
-                  wewnątrz i na zewnątrz, dzięki czemu są idealnym rozwiązaniem
-                  zarówno na wystawy, targi, jak i do promocji reklam w
-                  przestrzeniach publicznych. Oto kilka zalet naszych folii
-                  frontlight:
+                  Banery <b>frontlight</b> są specjalnie zaprojektowane do
+                  użytku wewnątrz i na zewnątrz, dzięki czemu są idealnym
+                  rozwiązaniem zarówno na wystawy, targi, jak i do promocji
+                  reklam w przestrzeniach publicznych. Oto kilka zalet naszych
+                  folii frontlight:
                 </p>
                 <ul className="baners-list">
                   <li>Wysoka jakość druku</li>
                   <li>Wysoka trwałość</li>
                   <li>
-                    Folie frontlit charakteryzują się znakomitą transparentnością,
-                    co pozwala na skuteczne wyświetlanie grafiki zarówno w dzień,
-                    jak i w nocy.{" "}
+                    Folie frontlit charakteryzują się znakomitą
+                    transparentnością, co pozwala na skuteczne wyświetlanie
+                    grafiki zarówno w dzień, jak i w nocy.{" "}
                   </li>
                   <li>
-                    Dostępne w różnych szerokościach: co pozwala na dostosowanie ich
-                    do indywidualnych potrzeb klienta
+                    Dostępne w różnych szerokościach: co pozwala na dostosowanie
+                    ich do indywidualnych potrzeb klienta
                   </li>
                 </ul>
                 <p className="card-text-2">
                   <b>Gramatura</b> to parametr określający masę papieru lub
-                  materiału na metr kwadratowy. Im większa gramatura, tym grubszy i
-                  bardziej wytrzymały jest baner. Oto kilka przykładowych banerów
-                  dostępnych w naszej ofercie:
+                  materiału na metr kwadratowy. Im większa gramatura, tym
+                  grubszy i bardziej wytrzymały jest baner. Oto kilka
+                  przykładowych banerów dostępnych w naszej ofercie:
                 </p>
                 <ul className="baners-list">
                   <li>
@@ -157,8 +170,8 @@ const Baners = () => {
                       targi, wystawy czy prezentacje.
                     </li>
                     <li>
-                      Zapewniają lepszą trwałość i wytrzymałość niż banery o niskiej
-                      gramaturze.
+                      Zapewniają lepszą trwałość i wytrzymałość niż banery o
+                      niskiej gramaturze.
                     </li>
                   </ul>
                   <li>
@@ -167,41 +180,44 @@ const Baners = () => {
                   <ul>
                     <li>Wytrzymałe i odporne na warunki atmosferyczne.</li>
                     <li>
-                      Stworzone z myślą o długoterminowych zastosowaniach, takich
-                      jak reklama w sklepach czy na budynkach.
+                      Stworzone z myślą o długoterminowych zastosowaniach,
+                      takich jak reklama w sklepach czy na budynkach.
                     </li>
                   </ul>
                 </ul>
                 <p className="card-text-2">
-                  Niezależnie od wybranej gramatury, nasze banery są drukowane przy
-                  użyciu najnowocześniejszych technologii, które zapewniają
-                  wyraziste kolory, ostre detale i trwałość na długie lata. Ponadto,
-                  oferujemy różne opcje wykończenia, takie jak oczka do zawieszania,
-                  aby ułatwić ich montaż.
+                  Niezależnie od wybranej gramatury, nasze banery są drukowane
+                  przy użyciu najnowocześniejszych technologii, które zapewniają
+                  wyraziste kolory, ostre detale i trwałość na długie lata.
+                  Ponadto, oferujemy różne opcje wykończenia, takie jak oczka do
+                  zawieszania, aby ułatwić ich montaż.
                   <br />
                 </p>
                 <p className="card-text-2">
                   Zalecane jest również <b>zgrzewanie</b> banerów.
                   <br />
                   Zgrzewanie brzegów banera jest procesem używanym w produkcji
-                  banerów i materiałów reklamowych, aby zabezpieczyć i wzmocnić ich
-                  krawędzie. Podczas tego procesu brzegi banera są łączone poprzez
-                  zastosowanie gorącego zgrzewu, który rozpuszcza materiał na
-                  brzegach, tworząc trwałe połączenie. Zgrzewanie brzegów pomaga
-                  zapobiec rozwarstwianiu się materiału, zapewniając mu większą
-                  wytrzymałość, szczególnie w warunkach atmosferycznych. Ważnym
-                  aspektem zgrzewania brzegów banera jest szerokość zgrzewu.
-                  Szerokość ta zawiera się w ostatecznych wymiarach banera.{" "}
+                  banerów i materiałów reklamowych, aby zabezpieczyć i wzmocnić
+                  ich krawędzie. Podczas tego procesu brzegi banera są łączone
+                  poprzez zastosowanie gorącego zgrzewu, który rozpuszcza
+                  materiał na brzegach, tworząc trwałe połączenie. Zgrzewanie
+                  brzegów pomaga zapobiec rozwarstwianiu się materiału,
+                  zapewniając mu większą wytrzymałość, szczególnie w warunkach
+                  atmosferycznych. Ważnym aspektem zgrzewania brzegów banera
+                  jest szerokość zgrzewu. Szerokość ta zawiera się w
+                  ostatecznych wymiarach banera.{" "}
                 </p>
 
                 <p className="card-text-2">
                   <b>
-                    W przypadku pytań lub potrzeby indywidualnej pomocy prosimy o{" "}
+                    W przypadku pytań lub potrzeby indywidualnej pomocy prosimy
+                    o{" "}
                     <Link to="/contact" className="link">
                       kontakt
                     </Link>
-                    . Dziękujemy za zainteresowanie naszą ofertą i mamy nadzieję, że
-                    wspólnie znajdziemy idealne rozwiązanie dla Twoich potrzeb!
+                    . Dziękujemy za zainteresowanie naszą ofertą i mamy
+                    nadzieję, że wspólnie znajdziemy idealne rozwiązanie dla
+                    Twoich potrzeb!
                   </b>
                 </p>
               </Col>
@@ -212,8 +228,17 @@ const Baners = () => {
                   <p className="card-text-3">
                     W przypadku większych zamówień cena jest niższa!
                   </p>
-                  <form className="p-5">
-                    <label htmlFor="grams">Gramatura: </label>
+                  <Formik
+                    initialValues={{ width: 100, height: 100 }}
+                    validationSchema={validationSchema}
+                    onSubmit={(values, { setSubmitting }) => {
+                      calculatePrice(values.width, values.height);
+                      setSubmitting(false);
+                    }}
+                  >
+                    {({ isSubmitting }) => (
+                      <Form className="p-5">
+                        {/* <label htmlFor="grams">Gramatura: </label>
                     <select
                       name="grams"
                       className="form-select"
@@ -227,147 +252,198 @@ const Baners = () => {
                       <option value="400">
                         400g/m<sup>2</sup>
                       </option>
-                    </select>
-                    <br id="here" />
+                    </select> */}
+                        <br id="here" />
 
-                    <label htmlFor="quantity">Ilość banerów: </label>
-                    <input
-                      type="number"
-                      name="quantity"
-                      min="1"
-                      max="10000"
-                      value={quantity}
-                      className="w-100"
-                      onChange={(e) => setQuantity(e.target.value)}
-                    />
-                    <br />
-                    <br />
+                        <label htmlFor="quantity">Ilość banerów: </label>
+                        <input
+                          type="number"
+                          name="quantity"
+                          min="1"
+                          max="10000"
+                          value={quantity}
+                          className="w-100"
+                          onChange={(e) => setQuantity(e.target.value)}
+                        />
+                        <br />
+                        <br />
 
-                    <label htmlFor="width">Wysokość (w centymetrach): </label>
-                    <select
-                      name="width"
-                      className="form-select"
-                      aria-label=""
-                      value={width}
-                      onChange={(e) => setWidth(e.target.value)}
-                    >
-                      <option value="140">140</option>
-                      <option value="200">200</option>
-                    </select>
-                    <br />
+                        <label htmlFor="width">
+                          Szerokość (w centymetrach):{" "}
+                        </label>
+                        <Field
+                          type="number"
+                          name="width"
+                          min="50"
+                          step="10"
+                          max="140"
+                          className="w-100"
+                        />
+                        <ErrorMessage
+                          name="width"
+                          component="div"
+                          className="error-message"
+                        />
+                        <br />
+                        <br />
 
-                    <label htmlFor="height">Szerokość (w centymetrach): </label>
-                    <input
-                      type="number"
-                      name="height"
-                      min="100"
-                      step="10"
-                      max="1000"
-                      value={height}
-                      className="w-100"
-                      onChange={(e) => setHeight(e.target.value)}
-                    />
-                    <br />
-                    <br />
+                        <label htmlFor="height">
+                          Wysokość (w centymetrach):{" "}
+                        </label>
+                        <Field
+                          type="number"
+                          name="height"
+                          min="50"
+                          step="10"
+                          max="2000"
+                          className="w-100"
+                        />
+                        <ErrorMessage
+                          name="height"
+                          component="div"
+                          className="error-message"
+                        />
+                        <br />
+                        <br />
 
-                    <label htmlFor="lamination">Laminacja:&nbsp;</label>
-                    <input
-                      type="checkbox"
-                      name="lamination"
-                      value="lamination"
-                      id="lamination"
-                      checked={lamination}
-                      onChange={(e) => setLamination(e.target.checked)}
-                    />
-                    <span id="laminationStatus">
-                      {lamination ? " Tak" : " Nie"}
-                    </span>
-                    <br />
-                    <br />
+                        <label htmlFor="eyelets">Oczka: </label>
+                        <select
+                          name="eyelets"
+                          className="form-select"
+                          aria-label=""
+                          value={eyelets}
+                          onChange={(e) => setEyelets(e.target.value)}
+                        >
+                          <option value="0">Nie</option>
+                          <option value="50">Tak, co 50cm</option>
+                          <option value="25">Tak, co 25cm</option>
+                          <option value="100">Tak, co 1m</option>
+                        </select>
+                        <br />
 
-                    <label htmlFor="eyelets">Oczka: </label>
-                    <select
-                      name="eyelets"
-                      className="form-select"
-                      aria-label=""
-                      value={eyelets}
-                      onChange={(e) => setEyelets(e.target.value)}
-                    >
-                      <option value="0">Nie</option>
-                      <option value="50">Tak, co 50cm</option>
-                      <option value="25">Tak, co 25cm</option>
-                      <option value="100">Tak, co 1m</option>
-                    </select>
-                    <br />
+                        <label htmlFor="lamination">Laminacja:&nbsp;</label>
+                        <div
+                          onChange={(e) =>
+                            setLamination(e.target.value === "Tak")
+                          }
+                        >
+                          <input
+                            type="radio"
+                            name="lamination"
+                            value="Tak"
+                            id="laminationYes"
+                            checked={lamination === true}
+                          />
+                          <label htmlFor="laminationYes">Tak</label>
+                          &nbsp;&nbsp;
+                          <input
+                            type="radio"
+                            name="lamination"
+                            value="Nie"
+                            id="laminationNo"
+                            checked={lamination === false}
+                          />
+                          <label htmlFor="laminationNo">Nie</label>
+                        </div>
+                        <br />
 
-                    <label htmlFor="welding">Zgrzane brzegi:&nbsp;</label>
-                    <input
-                      type="checkbox"
-                      name="welding"
-                      value="welding"
-                      id="welding"
-                      checked={welding}
-                      onChange={(e) => setWelding(e.target.checked)}
-                    />
-                    <span id="weldingStatus">{welding ? " Tak" : " Nie"}</span>
+                        <label htmlFor="welding">Zgrzane brzegi:&nbsp;</label>
+                        <div
+                          onChange={(e) => setWelding(e.target.value === "Tak")}
+                        >
+                          <input
+                            type="radio"
+                            name="welding"
+                            value="Tak"
+                            id="weldingYes"
+                            checked={welding === true}
+                          />
+                          <label htmlFor="weldingYes">Tak</label>
+                          &nbsp;&nbsp;
+                          <input
+                            type="radio"
+                            name="welding"
+                            value="Nie"
+                            id="weldingNo"
+                            checked={welding === false}
+                          />
+                          <label htmlFor="weldingNo">Nie</label>
+                        </div>
+                        <br />
 
-                    <br />
-                    <label htmlFor="project">Projekt graficzny:&nbsp;</label>
-                    <input
-                      type="checkbox"
-                      name="project"
-                      value="project"
-                      id="project"
-                      checked={project}
-                      onChange={(e) => setProject(e.target.checked)}
-                    />
-                    <span id="projectStatus">{project ? " Tak" : " Nie"}</span>
+                        <label htmlFor="project">
+                          Projekt graficzny:&nbsp;
+                        </label>
+                        <div
+                          onChange={(e) => setProject(e.target.value === "Tak")}
+                        >
+                          <input
+                            type="radio"
+                            name="project"
+                            value="Tak"
+                            id="projectYes"
+                            checked={project === true}
+                          />
+                          <label htmlFor="projectYes">Tak</label>
+                          &nbsp;&nbsp;
+                          <input
+                            type="radio"
+                            name="project"
+                            value="Nie"
+                            id="projectNo"
+                            checked={project === false}
+                          />
+                          <label htmlFor="projectNo">Nie</label>
+                        </div>
 
-                    <br />
-                    <br />
+                        <br />
+                        <br />
 
-                    <button
-                      type="button"
-                      className="button-banner"
-                      onClick={calculatePrice}
-                    >
-                      OBLICZ
-                    </button>
-                    <br />
-                    <br />
+                        <button type="submit" disabled={isSubmitting}>
+                          Oblicz
+                        </button>
+                        <br />
+                        <br />
 
-                    {!isCalculated ? (
-                      <span id="price">
-                        Cena: Wprowadź dane i kliknij{" "}
-                        <a href="#here" className="link">
-                          oblicz
-                        </a>{" "}
-                        by poznać cenę
-                      </span>
-                    ) : (
-                      <>
-                        <p id="price">
-                          Cena: {total.toFixed(2)} zł{" "}
-                          {discount && (
-                            <span style={{ color: "red" }}>{discount}</span>
-                          )}
-                        </p>
-                        {quantity > 1 && (
-                          <p id="pricePerItem">
-                            Cena za jedną sztukę: {pricePerItem.toFixed(2)} zł
-                          </p>
+                        {!isCalculated ? (
+                          <span id="price">
+                            Cena: Wprowadź dane i kliknij{" "}
+                            <a href="#here" className="link">
+                              oblicz
+                            </a>{" "}
+                            by poznać cenę
+                          </span>
+                        ) : (
+                          <>
+                            <p id="price">
+                              Cena: {total.toFixed(2)} zł{" "}
+                              {discount && (
+                                <span style={{ color: "red" }}>{discount}</span>
+                              )}
+                            </p>
+                            {quantity > 1 && (
+                              <p id="pricePerItem">
+                                Cena za jedną sztukę: {pricePerItem.toFixed(2)}{" "}
+                                zł
+                              </p>
+                            )}
+                            {withProject && (
+                              <p id="pricePerItem">
+                                Cena za projekt graficzny: 100 zł
+                                <span className="info-project">
+                                  &nbsp;(może się różnić w zależności od
+                                  złożoności projektu)
+                                </span>
+                              </p>
+                            )}
+                          </>
                         )}
-                        {withProject && (
-                          <p id="pricePerItem">
-                            Cena za projekt graficzny: 200 zł
-                          </p>
-                        )}
-                      </>
+                      </Form>
                     )}
-                  </form>
+                  </Formik>
                   <p className="baners-list">
-                    Proszę mieć na uwadze, że przedstawiona cena jest szacunkowa i
-                    podlega drobnym zmianom. W celu uzyskania dokładnej oferty
+                    Proszę mieć na uwadze, że przedstawiona cena jest szacunkowa
+                    i podlega drobnym zmianom. W celu uzyskania dokładnej oferty
                     prosimy o{" "}
                     <Link to="/contact" className="link">
                       kontakt
@@ -378,13 +454,12 @@ const Baners = () => {
               </Col>
             </Row>
           </Container>
-        </div>) : (
-        <> 
-        <Container className="price-list-mobile">
-          <Row> 
-          
-            <Col className="price-list-col-mobile">
-              
+        </div>
+      ) : (
+        <>
+          <Container className="price-list-mobile">
+            <Row>
+              <Col className="price-list-col-mobile">
                 <img
                   src="/img/baner2.png"
                   className="img-fluid rounded"
@@ -392,41 +467,47 @@ const Baners = () => {
                 />
                 <h3 className="header-center-big mb-5">BANERY</h3>
                 <span className="scroll-down">
-                  <b>Zjedź na dół by skorzystać z kalkulatora cen.&nbsp;&nbsp;&nbsp;&nbsp;</b> 
-                  <a className="arrow-to" href="#here"><FontAwesomeIcon icon={faCircleArrowDown}/></a>
+                  <b>
+                    Zjedź na dół by skorzystać z kalkulatora
+                    cen.&nbsp;&nbsp;&nbsp;&nbsp;
+                  </b>
+                  <a className="arrow-to" href="#here">
+                    <FontAwesomeIcon icon={faCircleArrowDown} />
+                  </a>
                 </span>
                 <p className="card-text-2">
                   Nasze banery są dostępne w różnych rozmiarach i gramaturach,
-                  dzięki czemu możesz wybrać dokładnie to, co najlepiej pasuje do
-                  Twoich potrzeb. Przeczytaj opis zamieszczony poniżej by poznać
-                  szczegóły na temat wykorzystywanych przez nas folii, czym jest
-                  gramatura, oraz dlaczego ważne jest zgrzewanie krawędzi.
+                  dzięki czemu możesz wybrać dokładnie to, co najlepiej pasuje
+                  do Twoich potrzeb. Przeczytaj opis zamieszczony poniżej by
+                  poznać szczegóły na temat wykorzystywanych przez nas folii,
+                  czym jest gramatura, oraz dlaczego ważne jest zgrzewanie
+                  krawędzi.
                   <br />
                   <br />
-                  Banery <b>frontlight</b> są specjalnie zaprojektowane do użytku
-                  wewnątrz i na zewnątrz, dzięki czemu są idealnym rozwiązaniem
-                  zarówno na wystawy, targi, jak i do promocji reklam w
-                  przestrzeniach publicznych. Oto kilka zalet naszych folii
-                  frontlight:
+                  Banery <b>frontlight</b> są specjalnie zaprojektowane do
+                  użytku wewnątrz i na zewnątrz, dzięki czemu są idealnym
+                  rozwiązaniem zarówno na wystawy, targi, jak i do promocji
+                  reklam w przestrzeniach publicznych. Oto kilka zalet naszych
+                  folii frontlight:
                 </p>
                 <ul className="baners-list">
                   <li>Wysoka jakość druku</li>
                   <li>Wysoka trwałość</li>
                   <li>
-                    Folie frontlit charakteryzują się znakomitą transparentnością,
-                    co pozwala na skuteczne wyświetlanie grafiki zarówno w dzień,
-                    jak i w nocy.{" "}
+                    Folie frontlit charakteryzują się znakomitą
+                    transparentnością, co pozwala na skuteczne wyświetlanie
+                    grafiki zarówno w dzień, jak i w nocy.{" "}
                   </li>
                   <li>
-                    Dostępne w różnych szerokościach: co pozwala na dostosowanie ich
-                    do indywidualnych potrzeb klienta
+                    Dostępne w różnych szerokościach: co pozwala na dostosowanie
+                    ich do indywidualnych potrzeb klienta
                   </li>
                 </ul>
                 <p className="card-text-2">
                   <b>Gramatura</b> to parametr określający masę papieru lub
-                  materiału na metr kwadratowy. Im większa gramatura, tym grubszy i
-                  bardziej wytrzymały jest baner. Oto kilka przykładowych banerów
-                  dostępnych w naszej ofercie:
+                  materiału na metr kwadratowy. Im większa gramatura, tym
+                  grubszy i bardziej wytrzymały jest baner. Oto kilka
+                  przykładowych banerów dostępnych w naszej ofercie:
                 </p>
                 <ul className="baners-list">
                   <li>
@@ -438,8 +519,8 @@ const Baners = () => {
                       targi, wystawy czy prezentacje.
                     </li>
                     <li>
-                      Zapewniają lepszą trwałość i wytrzymałość niż banery o niskiej
-                      gramaturze.
+                      Zapewniają lepszą trwałość i wytrzymałość niż banery o
+                      niskiej gramaturze.
                     </li>
                   </ul>
                   <li>
@@ -448,51 +529,65 @@ const Baners = () => {
                   <ul>
                     <li>Wytrzymałe i odporne na warunki atmosferyczne.</li>
                     <li>
-                      Stworzone z myślą o długoterminowych zastosowaniach, takich
-                      jak reklama w sklepach czy na budynkach.
+                      Stworzone z myślą o długoterminowych zastosowaniach,
+                      takich jak reklama w sklepach czy na budynkach.
                     </li>
                   </ul>
                 </ul>
                 <p className="card-text-2">
-                  Niezależnie od wybranej gramatury, nasze banery są drukowane przy
-                  użyciu najnowocześniejszych technologii, które zapewniają
-                  wyraziste kolory, ostre detale i trwałość na długie lata. Ponadto,
-                  oferujemy różne opcje wykończenia, takie jak oczka do zawieszania,
-                  aby ułatwić ich montaż.
+                  Niezależnie od wybranej gramatury, nasze banery są drukowane
+                  przy użyciu najnowocześniejszych technologii, które zapewniają
+                  wyraziste kolory, ostre detale i trwałość na długie lata.
+                  Ponadto, oferujemy różne opcje wykończenia, takie jak oczka do
+                  zawieszania, aby ułatwić ich montaż.
                   <br />
                 </p>
                 <p className="card-text-2">
                   Zalecane jest również <b>zgrzewanie</b> banerów.
                   <br />
                   Zgrzewanie brzegów banera jest procesem używanym w produkcji
-                  banerów i materiałów reklamowych, aby zabezpieczyć i wzmocnić ich
-                  krawędzie. Podczas tego procesu brzegi banera są łączone poprzez
-                  zastosowanie gorącego zgrzewu, który rozpuszcza materiał na
-                  brzegach, tworząc trwałe połączenie. Zgrzewanie brzegów pomaga
-                  zapobiec rozwarstwianiu się materiału, zapewniając mu większą
-                  wytrzymałość, szczególnie w warunkach atmosferycznych. Ważnym
-                  aspektem zgrzewania brzegów banera jest szerokość zgrzewu.
-                  Szerokość ta zawiera się w ostatecznych wymiarach banera.{" "}
+                  banerów i materiałów reklamowych, aby zabezpieczyć i wzmocnić
+                  ich krawędzie. Podczas tego procesu brzegi banera są łączone
+                  poprzez zastosowanie gorącego zgrzewu, który rozpuszcza
+                  materiał na brzegach, tworząc trwałe połączenie. Zgrzewanie
+                  brzegów pomaga zapobiec rozwarstwianiu się materiału,
+                  zapewniając mu większą wytrzymałość, szczególnie w warunkach
+                  atmosferycznych. Ważnym aspektem zgrzewania brzegów banera
+                  jest szerokość zgrzewu. Szerokość ta zawiera się w
+                  ostatecznych wymiarach banera.{" "}
                 </p>
 
                 <p className="card-text-2">
                   <b>
-                    W przypadku pytań lub potrzeby indywidualnej pomocy prosimy o{" "}
+                    W przypadku pytań lub potrzeby indywidualnej pomocy prosimy
+                    o{" "}
                     <Link to="/contact" className="link">
                       kontakt
                     </Link>
-                    . Dziękujemy za zainteresowanie naszą ofertą i mamy nadzieję, że
-                    wspólnie znajdziemy idealne rozwiązanie dla Twoich potrzeb!
+                    . Dziękujemy za zainteresowanie naszą ofertą i mamy
+                    nadzieję, że wspólnie znajdziemy idealne rozwiązanie dla
+                    Twoich potrzeb!
                   </b>
                 </p>
-                <hr className="my-4"/>
+                <hr className="my-4" />
                 <div className="card-body flex-column justify-content-between text-center h-100">
-                  <h5 className="card-title" id="here">Sprawdź cenę</h5>
+                  <h5 className="card-title" id="here">
+                    Sprawdź cenę
+                  </h5>
                   <p className="card-text-3">
                     W przypadku większych zamówień cena jest niższa!
                   </p>
-                  <form className="p-5">
-                    <label htmlFor="grams">Gramatura: </label>
+                  <Formik
+                    initialValues={{ width: 100, height: 100 }}
+                    validationSchema={validationSchema}
+                    onSubmit={(values, { setSubmitting }) => {
+                      calculatePrice(values.width, values.height);
+                      setSubmitting(false);
+                    }}
+                  >
+                    {({ isSubmitting }) => (
+                      <Form className="p-5">
+                        {/* <label htmlFor="grams">Gramatura: </label>
                     <select
                       name="grams"
                       className="form-select"
@@ -506,147 +601,198 @@ const Baners = () => {
                       <option value="400">
                         400g/m<sup>2</sup>
                       </option>
-                    </select>
-                    <br id="here" />
+                    </select> */}
+                        <br id="here" />
 
-                    <label htmlFor="quantity">Ilość banerów: </label>
-                    <input
-                      type="number"
-                      name="quantity"
-                      min="1"
-                      max="10000"
-                      value={quantity}
-                      className="w-100"
-                      onChange={(e) => setQuantity(e.target.value)}
-                    />
-                    <br />
-                    <br />
+                        <label htmlFor="quantity">Ilość banerów: </label>
+                        <input
+                          type="number"
+                          name="quantity"
+                          min="1"
+                          max="10000"
+                          value={quantity}
+                          className="w-100"
+                          onChange={(e) => setQuantity(e.target.value)}
+                        />
+                        <br />
+                        <br />
 
-                    <label htmlFor="width">Wysokość (w centymetrach): </label>
-                    <select
-                      name="width"
-                      className="form-select"
-                      aria-label=""
-                      value={width}
-                      onChange={(e) => setWidth(e.target.value)}
-                    >
-                      <option value="140">140</option>
-                      <option value="200">200</option>
-                    </select>
-                    <br />
+                        <label htmlFor="width">
+                          Szerokość (w centymetrach):{" "}
+                        </label>
+                        <Field
+                          type="number"
+                          name="width"
+                          min="50"
+                          step="10"
+                          max="140"
+                          className="w-100"
+                        />
+                        <ErrorMessage
+                          name="width"
+                          component="div"
+                          className="error-message"
+                        />
+                        <br />
+                        <br />
 
-                    <label htmlFor="height">Szerokość (w centymetrach): </label>
-                    <input
-                      type="number"
-                      name="height"
-                      min="100"
-                      step="10"
-                      max="1000"
-                      value={height}
-                      className="w-100"
-                      onChange={(e) => setHeight(e.target.value)}
-                    />
-                    <br />
-                    <br />
+                        <label htmlFor="height">
+                          Wysokość (w centymetrach):{" "}
+                        </label>
+                        <Field
+                          type="number"
+                          name="height"
+                          min="50"
+                          step="10"
+                          max="2000"
+                          className="w-100"
+                        />
+                        <ErrorMessage
+                          name="height"
+                          component="div"
+                          className="error-message"
+                        />
+                        <br />
+                        <br />
 
-                    <label htmlFor="lamination">Laminacja:&nbsp;</label>
-                    <input
-                      type="checkbox"
-                      name="lamination"
-                      value="lamination"
-                      id="lamination"
-                      checked={lamination}
-                      onChange={(e) => setLamination(e.target.checked)}
-                    />
-                    <span id="laminationStatus">
-                      {lamination ? " Tak" : " Nie"}
-                    </span>
-                    <br />
-                    <br />
+                        <label htmlFor="eyelets">Oczka: </label>
+                        <select
+                          name="eyelets"
+                          className="form-select"
+                          aria-label=""
+                          value={eyelets}
+                          onChange={(e) => setEyelets(e.target.value)}
+                        >
+                          <option value="0">Nie</option>
+                          <option value="50">Tak, co 50cm</option>
+                          <option value="25">Tak, co 25cm</option>
+                          <option value="100">Tak, co 1m</option>
+                        </select>
+                        <br />
 
-                    <label htmlFor="eyelets">Oczka: </label>
-                    <select
-                      name="eyelets"
-                      className="form-select"
-                      aria-label=""
-                      value={eyelets}
-                      onChange={(e) => setEyelets(e.target.value)}
-                    >
-                      <option value="0">Nie</option>
-                      <option value="50">Tak, co 50cm</option>
-                      <option value="25">Tak, co 25cm</option>
-                      <option value="100">Tak, co 1m</option>
-                    </select>
-                    <br />
+                        <label htmlFor="lamination">Laminacja:&nbsp;</label>
+                        <div
+                          onChange={(e) =>
+                            setLamination(e.target.value === "Tak")
+                          }
+                        >
+                          <input
+                            type="radio"
+                            name="lamination"
+                            value="Tak"
+                            id="laminationYes"
+                            checked={lamination === true}
+                          />
+                          <label htmlFor="laminationYes">Tak</label>
+                          &nbsp;&nbsp;
+                          <input
+                            type="radio"
+                            name="lamination"
+                            value="Nie"
+                            id="laminationNo"
+                            checked={lamination === false}
+                          />
+                          <label htmlFor="laminationNo">Nie</label>
+                        </div>
+                        <br />
 
-                    <label htmlFor="welding">Zgrzane brzegi:&nbsp;</label>
-                    <input
-                      type="checkbox"
-                      name="welding"
-                      value="welding"
-                      id="welding"
-                      checked={welding}
-                      onChange={(e) => setWelding(e.target.checked)}
-                    />
-                    <span id="weldingStatus">{welding ? " Tak" : " Nie"}</span>
+                        <label htmlFor="welding">Zgrzane brzegi:&nbsp;</label>
+                        <div
+                          onChange={(e) => setWelding(e.target.value === "Tak")}
+                        >
+                          <input
+                            type="radio"
+                            name="welding"
+                            value="Tak"
+                            id="weldingYes"
+                            checked={welding === true}
+                          />
+                          <label htmlFor="weldingYes">Tak</label>
+                          &nbsp;&nbsp;
+                          <input
+                            type="radio"
+                            name="welding"
+                            value="Nie"
+                            id="weldingNo"
+                            checked={welding === false}
+                          />
+                          <label htmlFor="weldingNo">Nie</label>
+                        </div>
+                        <br />
 
-                    <br />
-                    <label htmlFor="project">Projekt graficzny:&nbsp;</label>
-                    <input
-                      type="checkbox"
-                      name="project"
-                      value="project"
-                      id="project"
-                      checked={project}
-                      onChange={(e) => setProject(e.target.checked)}
-                    />
-                    <span id="projectStatus">{project ? " Tak" : " Nie"}</span>
+                        <label htmlFor="project">
+                          Projekt graficzny:&nbsp;
+                        </label>
+                        <div
+                          onChange={(e) => setProject(e.target.value === "Tak")}
+                        >
+                          <input
+                            type="radio"
+                            name="project"
+                            value="Tak"
+                            id="projectYes"
+                            checked={project === true}
+                          />
+                          <label htmlFor="projectYes">Tak</label>
+                          &nbsp;&nbsp;
+                          <input
+                            type="radio"
+                            name="project"
+                            value="Nie"
+                            id="projectNo"
+                            checked={project === false}
+                          />
+                          <label htmlFor="projectNo">Nie</label>
+                        </div>
 
-                    <br />
-                    <br />
+                        <br />
+                        <br />
 
-                    <button
-                      type="button"
-                      className="button-banner"
-                      onClick={calculatePrice}
-                    >
-                      OBLICZ
-                    </button>
-                    <br />
-                    <br />
+                        <button type="submit" disabled={isSubmitting}>
+                          Oblicz
+                        </button>
+                        <br />
+                        <br />
 
-                    {!isCalculated ? (
-                      <span id="price">
-                        Cena: Wprowadź dane i kliknij{" "}
-                        <a href="#here" className="link">
-                          oblicz
-                        </a>{" "}
-                        by poznać cenę
-                      </span>
-                    ) : (
-                      <>
-                        <p id="price">
-                          Cena: {total.toFixed(2)} zł{" "}
-                          {discount && (
-                            <span style={{ color: "red" }}>{discount}</span>
-                          )}
-                        </p>
-                        {quantity > 1 && (
-                          <p id="pricePerItem">
-                            Cena za jedną sztukę: {pricePerItem.toFixed(2)} zł
-                          </p>
+                        {!isCalculated ? (
+                          <span id="price">
+                            Cena: Wprowadź dane i kliknij{" "}
+                            <a href="#here" className="link">
+                              oblicz
+                            </a>{" "}
+                            by poznać cenę
+                          </span>
+                        ) : (
+                          <>
+                            <p id="price">
+                              Cena: {total.toFixed(2)} zł{" "}
+                              {discount && (
+                                <span style={{ color: "red" }}>{discount}</span>
+                              )}
+                            </p>
+                            {quantity > 1 && (
+                              <p id="pricePerItem">
+                                Cena za jedną sztukę: {pricePerItem.toFixed(2)}{" "}
+                                zł
+                              </p>
+                            )}
+                            {withProject && (
+                              <p id="pricePerItem">
+                                Cena za projekt graficzny: 100 zł
+                                <span className="info-project">
+                                  &nbsp;(może się różnić w zależności od
+                                  złożoności projektu)
+                                </span>
+                              </p>
+                            )}
+                          </>
                         )}
-                        {withProject && (
-                          <p id="pricePerItem">
-                            Cena za projekt graficzny: 200 zł
-                          </p>
-                        )}
-                      </>
+                      </Form>
                     )}
-                  </form>
+                  </Formik>
                   <p className="baners-list">
-                    Proszę mieć na uwadze, że przedstawiona cena jest szacunkowa i
-                    podlega drobnym zmianom. W celu uzyskania dokładnej oferty
+                    Proszę mieć na uwadze, że przedstawiona cena jest szacunkowa
+                    i podlega drobnym zmianom. W celu uzyskania dokładnej oferty
                     prosimy o{" "}
                     <Link to="/contact" className="link">
                       kontakt
@@ -654,10 +800,11 @@ const Baners = () => {
                     .
                   </p>
                 </div>
-            </Col>
-          </Row>
-        </Container>
-        </>)}
+              </Col>
+            </Row>
+          </Container>
+        </>
+      )}
     </>
   );
 };
