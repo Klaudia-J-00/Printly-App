@@ -13,6 +13,9 @@ const MyNavbar = () => {
                     <Navbar expand="sm">
                         <Container> 
                                 <Nav>
+                                    
+                                    <Nav.Link as={Link} to="/price-list">CENNIK</Nav.Link>
+                                    <Nav.Link as={Link} to="/contact">KONTAKT</Nav.Link>
                                     <NavDropdown title="USŁUGI" id="hover-dropdown">
                                         <NavDropdown.Item as={Link} to="/services">WSZYSTKIE USŁUGI</NavDropdown.Item>
                                         <NavDropdown.Divider />
@@ -28,8 +31,7 @@ const MyNavbar = () => {
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item as={Link} to="/magnets">MAGNESY</NavDropdown.Item>
                                     </NavDropdown>
-                                    <Nav.Link as={Link} to="/price-list">CENNIK</Nav.Link>
-                                    <Nav.Link as={Link} to="/contact">KONTAKT</Nav.Link>
+                                    
                                 </Nav>
                         </Container>
                     </Navbar>

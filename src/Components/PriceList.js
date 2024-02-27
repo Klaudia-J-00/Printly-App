@@ -54,8 +54,8 @@ const PriceList = () => {
       {isMobile ? (
         <div className="about">
           <Container className="card-container p-5">
+            <h3 className="header-center-big mb-5 services-h3">CENNIK</h3>
             <Row className="price-list-row card-one">
-              <h3 className="header-center-big mb-5">CENNIK</h3>
               <Col lg={4} className="price-list-col p-3">
                 <h3 className="header-center">BANERY</h3>
                 <p>
