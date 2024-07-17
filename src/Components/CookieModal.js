@@ -39,7 +39,7 @@ function CookieModal() {
   return (
     <>
       <div className={show ? 'show2' : 'hide2'} id="cookiePopup">
-        <img src="img/cookie.jpeg" className="img-fluid" alt='cookie'/>
+        <img src="img/cookie.png" className="img-fluid" alt='cookie'/>
         <p> Nasza strona internetowa korzysta z plików cookies, 
         aby zapewnić Ci najlepsze możliwe doświadczenie podczas korzystania z naszej 
         strony. Korzystając z naszej strony, wyrażasz zgodę na stosowanie plików cookies zgodnie 
