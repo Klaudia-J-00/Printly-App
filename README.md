@@ -49,7 +49,7 @@ The `Navbar` component defines the navigation structure, offering links to vario
 - Price List
 - Contact
 - Services, with subcategories for Banners, Posters, Stickers, and other customizable products.
-  ![Printly App Navbar](img/navbar.png)
+  ![Printly App Navbar](img/Navbar.png)
 
 ### Footer.js
 
