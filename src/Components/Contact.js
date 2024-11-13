@@ -121,8 +121,8 @@ const Contact = () => {
                       <h5 className="h5-contact">
                         Napisz wiadomość na e-mail:
                       </h5>
-                      <p>kontakt@printly.net.pl</p>
-                      <a href="mailto:kontakt@printly.net.pl">Napisz</a>
+                      <p>printlypl@gmail.com</p>
+                      <a href="mailto:printlypl@gmail.com">Napisz</a>
                     </div>
                   )}
                   {activeDiv === "messanger" && (
@@ -325,8 +325,8 @@ const Contact = () => {
                       <h5 className="h5-contact">
                         Napisz wiadomość na e-mail:
                       </h5>
-                      <p>kontakt@printly.net.pl</p>
-                      <a href="mailto:kontakt@printly.net.pl" className="mob-link">Napisz</a>
+                      <p>printlypl@gmail.com</p>
+                      <a href="mailto:printlypl@gmail.com" className="mob-link">Napisz</a>
                     </div>
                   )}
                   {activeDiv === "messanger" && (

@@ -51,7 +51,7 @@ const Services = () => {
       {isMobile ? (
         <div className="about">
           <Container className="card-container">
-          <h3 className="header-center-big mb-5 services-h3"> WSZYSTKIE USŁUGI </h3>
+          <h3 className="header-center-big mb-5 services-h3"> PRODUKTY </h3>
             <Row className="m-5 card-one">
               <Col sm={4}>
                 <img
@@ -70,7 +70,7 @@ const Services = () => {
                     liczby klientów.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/baners">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/baners">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -86,7 +86,7 @@ const Services = () => {
                     marketingowym zarówno dla małych biznesów, jak i dużych firm.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/posters">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/posters">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -117,7 +117,7 @@ const Services = () => {
                     dodając profesjonalizmu i charakteru Twojemu biznesowi.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/stickers">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/stickers">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -134,7 +134,7 @@ const Services = () => {
                     wyróżnić Twoją ofertę w tłumie konkurencyjnych firm.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/aboards">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/aboards">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -166,7 +166,7 @@ const Services = () => {
                     produkty lub usługi.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/rollups">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/rollups">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -183,7 +183,7 @@ const Services = () => {
                     pozostawiania śladów.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/magnets">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/magnets">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -200,7 +200,7 @@ const Services = () => {
         <>
           <Container className="price-list-mobile">
             <Row>
-              <h3 className="header-center-big my-5"> WSZYSTKIE USŁUGI </h3>
+              <h3 className="header-center-big my-5"> PRODUKTY </h3>
 
               <Col className="price-list-col-mobile mb-4">
               <img
@@ -217,7 +217,7 @@ const Services = () => {
                     liczby klientów.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/baners">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/baners">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -236,7 +236,7 @@ const Services = () => {
                     marketingowym zarówno dla małych biznesów, jak i dużych firm.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/posters">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/posters">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -256,7 +256,7 @@ const Services = () => {
                     dodając profesjonalizmu i charakteru Twojemu biznesowi.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/stickers">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/stickers">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -276,7 +276,7 @@ const Services = () => {
                     wyróżnić Twoją ofertę w tłumie konkurencyjnych firm.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/aboards">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/aboards">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -297,7 +297,7 @@ const Services = () => {
                     produkty lub usługi.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/rollups">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/rollups">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -317,7 +317,7 @@ const Services = () => {
                     pozostawiania śladów.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/magnets">Kliknij by dowiedzieć się więcej</Link>
+                    <Link to="/magnets">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>

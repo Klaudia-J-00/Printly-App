@@ -83,13 +83,20 @@ const Footer = () => {
             </Col>
           </Row>
           <Row className="mt-2">
-            <Col md={3} className="mt-4"><h5>&copy; Printly 2023</h5>
+            <Col md={3} className="mt-4"><h5>&copy; Printly Oskar Golanowski 2024</h5>
               <p>Wszelkie prawa zastrzeżone. Kopiowanie lub wykorzystywanie materiałów jest zabronione.</p></Col>
-            <Col style={{marginTop: '40px'}}><p>Witamy w Printly! Dążymy do najwyższej jakości, dbając o każdy detal, aby zapewnić naszym klientom doskonałe rezultaty. Zachęcamy Cię do śledzenia nas na mediach społecznościowych oraz ocenienia nas na Google. Dziękujemy za odwiedzenie naszej strony i zapraszamy do zapoznania się z naszymi kreatywnymi i innowacyjnymi rozwiązaniami drukarskimi!</p></Col>
+              <Col style={{marginTop: '40px'}}><p>Witamy w Printly! Dążymy do najwyższej jakości, dbając o każdy detal, aby zapewnić naszym klientom doskonałe rezultaty. Zachęcamy Cię do śledzenia nas na mediach społecznościowych oraz ocenienia nas na Google. Dziękujemy za odwiedzenie naszej strony i zapraszamy do zapoznania się z naszymi kreatywnymi i innowacyjnymi rozwiązaniami drukarskimi!</p></Col>
+              <Col md={2} className='company-info'>
+                <p className="p-info">ul. Stawowa 5</p>
+                <p className="p-info">42-274 Konopiska</p>
+                <p className="p-info">+48 575 254 057</p>
+                <p className="p-info">printlypl@gmail.com</p>
+                <p className="p-info">NIP: 5732943270</p>
+                <p className="p-info">REGON: 525220560</p>
+              </Col>
           </Row>
         </Container>
       </footer>
     );
 };
-
 export default Footer;

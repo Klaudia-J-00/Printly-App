@@ -154,6 +154,7 @@ const Hero = () => {
       {/*LARGE PRINT FORMAT AND STICKERS*/}
       <Container className="mt-5 reveal2">
         <div className="cont">
+          <a href="/services">
           <div className="card">
             <h2>Druk wielkoformatowy</h2>
             <p>
@@ -166,18 +167,18 @@ const Hero = () => {
             <div className="pic"></div>
             <button></button>
           </div>
+          </a>
+          <a href="/stickers">
           <div className="card card2 ">
             <h2>Naklejki</h2>
             <p>
-              Oferujemy zarówno jednokolorowe, jak i wielokolorowe naklejki z
-              nadrukiem, pozwalające na pełne dostosowanie do Twojej marki.
-              Dodatkowo, nasze wycinane naklejki mogą przyjąć dowolny kształt,
-              aby idealnie wpasować się w Twoje indywidualne potrzeby.
+              Oferujemy naklejki wycinane z folii, jak i naklejki nadrukowane (np. etykiety, 
+              naklejki na witryny, czy samochody).
             </p>
             <span className="change">{isMobile ? 'DOTKNIJ' : 'NAJEDŹ'}</span>
             <div className="pic"></div>
             <button></button>
-          </div>
+          </div></a>
         </div>
       </Container>
     </>

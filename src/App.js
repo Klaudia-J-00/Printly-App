@@ -16,6 +16,7 @@ import Stickers from "./Components/Stickers";
 import Aboards from "./Components/Aboards";
 import Rollups from "./Components/Rollups";
 import Magnets from "./Components/Magnets";
+import About from "./Components/About";
 import "./App.css";
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/terms" element={<Terms />} />
-        <Route path="/price-list" element={<PriceList />} />
+        <Route path="/about" element={<About />} /> 
         <Route path="/services" element={<Services />} />
         <Route path="/baners" element={<Baners />} />
         <Route path="/cookies" element={<Cookies />} />
