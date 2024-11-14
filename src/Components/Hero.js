@@ -152,7 +152,7 @@ const Hero = () => {
       </div>
 
       {/*LARGE PRINT FORMAT AND STICKERS*/}
-      <Container className="mt-5 reveal2">
+      <Container className="mt-5 reveal">
         <div className="cont">
           <a href="/services">
           <div className="card">

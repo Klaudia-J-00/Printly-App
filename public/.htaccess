@@ -1,0 +1,10 @@
+# Włącz mod_rewrite
+RewriteEngine On
+RewriteBase /
+
+# Jeśli plik lub katalog istnieje, pozwól na bezpośredni dostęp do niego
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Jeśli plik nie istnieje, przekieruj wszystko do index.html
+RewriteRule ^ index.html [L]

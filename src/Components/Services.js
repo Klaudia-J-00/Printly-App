@@ -245,7 +245,7 @@ const Services = () => {
                 </div>
               </Col>
 
-              <Col className="price-list-col-mobile mb-4 reveal2">
+              <Col className="price-list-col-mobile mb-4 reveal">
               <img
                   src="img/poster2.png"
                   className="img-fluid rounded"
@@ -284,7 +284,7 @@ const Services = () => {
                 </div>
               </Col>
 
-              <Col className="price-list-col-mobile mb-4 reveal2">
+              <Col className="price-list-col-mobile mb-4 reveal">
               <img
                   src="img/a-board.jpg"
                   className="img-fluid rounded"
@@ -325,7 +325,7 @@ const Services = () => {
                 </div>
               </Col>
 
-              <Col className="price-list-col-mobile mb-4 reveal2">
+              <Col className="price-list-col-mobile mb-4 reveal">
               <img
                   src="img/komura.png"
                   className="img-fluid rounded"
@@ -338,6 +338,24 @@ const Services = () => {
                     bez konieczności trwałych zmian. Łatwo przymocuj i zdejmij
                     magnesy w dowolnej chwili, bez ryzyka uszkodzeń czy
                     pozostawiania śladów.
+                  </p>
+                  <button className="mt-auto">
+                    <Link to="/magnets">Kalkulator cen</Link>
+                  </button>
+                </div>
+              </Col>
+
+              <Col className="price-list-col-mobile mb-4 reveal">
+              <img
+                  src="img/sticker-window.png"
+                  className="img-fluid rounded"
+                  alt="magnets"
+                />
+                <div className="card-body d-flex flex-column justify-content-between h-100">
+                  <h5 className="card-title text-center">FOLIE REKLAMOWE</h5>
+                  <p className="card-text">
+                  Monomeryczne lub polimeryczne folie wykorzystywane do reklamy wewnętrznej lub zewnętrznej, idealne do oklejania witryn sklepowych, samochodów, szyb, ścian, podłóg, mebli, drzwi, a także do 
+                  oznakowania tablic.
                   </p>
                   <button className="mt-auto">
                     <Link to="/magnets">Kalkulator cen</Link>

@@ -498,7 +498,7 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="btn btn-primary btn-block mb-5"
+                    className="btn btn-primary btn-block mb-5 mobile-button"
                   >
                     Wyślij
                   </button>

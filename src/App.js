@@ -16,11 +16,14 @@ import Rollups from "./Components/Rollups";
 import Magnets from "./Components/Magnets";
 import About from "./Components/About";
 import Foil from "./Components/Foil";
+import Cookies from "./Components/Cookies";
+import ScrollToTop from "./Components/ScrollToTop"; // Import the ScrollToTop component
 import "./App.css";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <MyNavbar />
       <CookieModal />
       <Routes>
@@ -29,6 +32,7 @@ function App() {
         <Route path="/policy" element={<Policy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/about" element={<About />} /> 
+        <Route path="/cookies" element={<Cookies />} />
         <Route path="/services" element={<Services />} />
         <Route path="/baners" element={<Baners />} />
         <Route path="/posters" element={<Posters />} />

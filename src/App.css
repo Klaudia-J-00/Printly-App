@@ -1,8 +1,15 @@
+html {
+    scroll-behavior: smooth;
+}
+  
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif!important;
+    overflow-x: hidden;
+    width: 100vw;
 }
 
 .about-bg {
@@ -651,7 +658,7 @@ footer .stars i {
 
   .nav-mobile {
     background-color: #08bde4;
-    width: 100%;
+    width: 100vw;
     position: fixed; /* Fixes the nav bar to the viewport */
     bottom: 0; /* Positions it at the bottom */
     left: 0; /* Ensures it spans the full width of the screen */
@@ -659,7 +666,7 @@ footer .stars i {
     display: flex; /* Enables flexbox layout */
     justify-content: space-evenly; /* Distributes links evenly across the width */
     align-items: center; /* Vertically centers the links */
-    height: 100px; /* Adjust the height as desired */
+    height: 10vh; /* Adjust the height as desired */
     padding: 0 10px; /* Optional: Adds horizontal padding for spacing */
     font-size: 12px;
 }
@@ -720,13 +727,12 @@ footer .stars i {
 .price-list-mobile button {
     margin-top: 20px!important;
     background-color: #F10CD7;
-    width: 180px;
     color: #F5F5F5!important;
     font-family: Poppins;
     font-weight: 600;
     padding: 15px;
     text-decoration: none;
-    width: 300px;
+    width: 230px;
     border: 2px solid #F5F5F5;
     border-radius: 30px;
     position: relative;
@@ -1052,7 +1058,7 @@ footer .stars i {
     padding: 50px;
 }
 
-.card-container button{
+.card-container button, .mobile-button{
     background-color: #F10CD7;
     color: #F5F5F5;
     font-family: Poppins;
@@ -1066,7 +1072,7 @@ footer .stars i {
     margin: auto;
 }
 
-.card-container button:hover{
+.card-container button:hover, .mobile-button:hover{
     background-color: #F5F5F5;
     color: #F10CD7;
     border: 2px solid #F10CD7;
