@@ -127,87 +127,43 @@ const Baners = () => {
                 />
                 <h5 className="card-title mt-4">BANERY</h5>
                 <p className="card-text-2">
-                  Nasze banery są dostępne w różnych rozmiarach i gramaturach,
-                  dzięki czemu możesz wybrać dokładnie to, co najlepiej pasuje
-                  do Twoich potrzeb. Przeczytaj opis zamieszczony poniżej by
-                  poznać szczegóły na temat wykorzystywanych przez nas folii,
-                  czym jest gramatura, oraz dlaczego ważne jest zgrzewanie
-                  krawędzi.
+                  <b>RODZAJE WYKOŃCZENIA </b> <br></br>
+                  Oferujemy różnorodne wykończenia banerów, które 
+                  pozwalają na ich łatwy montaż oraz zwiększają ich trwałość.
                   <br />
                   <br />
-                  Banery <b>frontlight</b> są specjalnie zaprojektowane do
-                  użytku wewnątrz i na zewnątrz, dzięki czemu są idealnym
-                  rozwiązaniem zarówno na wystawy, targi, jak i do promocji
-                  reklam w przestrzeniach publicznych. Oto kilka zalet naszych
-                  folii frontlight:
+                  W zależności od Twoich potrzeb i miejsca, w którym baner
+                  będzie eksponowany, możesz wybrać jedno z poniższych rozwiązań:
+                
+                <ol>
+                  <li><b>Oczkowanie</b></li>
+                  <p>Oczkowanie pozwala na szybki i wygodny montaż banera. 
+                    Oferujemy trzy opcje rozmieszczenia oczek:
+                    <ul>
+                      <li>Co 25cm - dla większej stabilności i równomiernego rozłożenia ciężaru.</li>
+                      <li>Co 50cm - standardowe rozwiązanie dla większości zastosowań.</li>
+                      <li>Według życzenia klienta - możemy dostosować rozmieszczenie oczek do Twoich indywidualnych potrzeb.</li>
+                    </ul>
+                  </p>
+                  <li><b>Tunel</b></li>
+                  <p>
+                  Tunel to opcja, która polega na stworzeniu przestrzeni na rurkę lub drążek od góry i dołu.
+                  </p>
+                  <li><b>Docinanie na ostro</b> z oczkami lub bez</li>
+                  <p>
+                  W tej opcji krawędzie banera są przycinane na ostro, co nadaje mu bardziej 
+                  nowoczesny i elegancki wygląd. <br></br> Jest to doskonała opcja, gdy chcesz, aby Twój baner miał czyste, 
+                  wyraziste krawędzie bez dodatkowego wykończenia. To rozwiązanie jest mniej trwałe od zawijania krawędzi.
+                  </p>
+                </ol>
+                <p>
+                <b>Dlaczego warto wybrać odpowiednie wykończenie?</b> <br></br> Wybór odpowiedniego wykończenia banera 
+                zależy od jego przeznaczenia i miejsca montażu. Oferujemy elastyczność w dostosowywaniu rozwiązań do 
+                Twoich potrzeb, co zapewnia wygodę i trwałość reklamy.
+                <br></br><br></br>
+                Dodatkowowo oferujemy laminowanie banerów, w celu zwiększenia ich żywotności i odporności na promieniowanie UV i warunki atmosferyczne. 
                 </p>
-                <ul className="baners-list">
-                  <li>Wysoka jakość druku</li>
-                  <li>Wysoka trwałość</li>
-                  <li>
-                    Folie frontlit charakteryzują się znakomitą
-                    transparentnością, co pozwala na skuteczne wyświetlanie
-                    grafiki zarówno w dzień, jak i w nocy.{" "}
-                  </li>
-                  <li>
-                    Dostępne w różnych szerokościach: co pozwala na dostosowanie
-                    ich do indywidualnych potrzeb klienta
-                  </li>
-                </ul>
-                <p className="card-text-2">
-                  <b>Gramatura</b> to parametr określający masę papieru lub
-                  materiału na metr kwadratowy. Im większa gramatura, tym
-                  grubszy i bardziej wytrzymały jest baner. Oto kilka
-                  przykładowych banerów dostępnych w naszej ofercie:
                 </p>
-                <ul className="baners-list">
-                  <li>
-                    Banery o średniej gramaturze (160 g/m<sup>2</sup>)
-                  </li>
-                  <ul>
-                    <li>
-                      Doskonałe na średnioterminowe wydarzenia i promocje, jak
-                      targi, wystawy czy prezentacje.
-                    </li>
-                    <li>
-                      Zapewniają lepszą trwałość i wytrzymałość niż banery o
-                      niskiej gramaturze.
-                    </li>
-                  </ul>
-                  <li>
-                    Banery o wysokiej gramaturze (400g/m<sup>2</sup>)
-                  </li>
-                  <ul>
-                    <li>Wytrzymałe i odporne na warunki atmosferyczne.</li>
-                    <li>
-                      Stworzone z myślą o długoterminowych zastosowaniach,
-                      takich jak reklama w sklepach czy na budynkach.
-                    </li>
-                  </ul>
-                </ul>
-                <p className="card-text-2">
-                  Niezależnie od wybranej gramatury, nasze banery są drukowane
-                  przy użyciu najnowocześniejszych technologii, które zapewniają
-                  wyraziste kolory, ostre detale i trwałość na długie lata.
-                  Ponadto, oferujemy różne opcje wykończenia, takie jak oczka do
-                  zawieszania, aby ułatwić ich montaż.
-                  <br />
-                </p>
-                <p className="card-text-2">
-                  Zalecane jest również <b>zgrzewanie</b> banerów.
-                  <br />
-                  Zgrzewanie brzegów banera jest procesem używanym w produkcji
-                  banerów i materiałów reklamowych, aby zabezpieczyć i wzmocnić
-                  ich krawędzie. Podczas tego procesu brzegi banera są łączone
-                  poprzez zastosowanie gorącego zgrzewu, który rozpuszcza
-                  materiał na brzegach, tworząc trwałe połączenie. Zgrzewanie
-                  brzegów pomaga zapobiec rozwarstwianiu się materiału,
-                  zapewniając mu większą wytrzymałość, szczególnie w warunkach
-                  atmosferycznych. Ważnym aspektem zgrzewania brzegów banera
-                  jest szerokość zgrzewu. Szerokość ta zawiera się w
-                  ostatecznych wymiarach banera.{" "}
-                </p>
-
                 <p className="card-text-2">
                   <b>
                     W przypadku pytań lub potrzeby indywidualnej pomocy prosimy
@@ -476,87 +432,43 @@ const Baners = () => {
                   </a>
                 </span>
                 <p className="card-text-2">
-                  Nasze banery są dostępne w różnych rozmiarach i gramaturach,
-                  dzięki czemu możesz wybrać dokładnie to, co najlepiej pasuje
-                  do Twoich potrzeb. Przeczytaj opis zamieszczony poniżej by
-                  poznać szczegóły na temat wykorzystywanych przez nas folii,
-                  czym jest gramatura, oraz dlaczego ważne jest zgrzewanie
-                  krawędzi.
+                  <b>RODZAJE WYKOŃCZENIA </b> <br></br>
+                  Oferujemy różnorodne wykończenia banerów, które 
+                  pozwalają na ich łatwy montaż oraz zwiększają ich trwałość.
                   <br />
                   <br />
-                  Banery <b>frontlight</b> są specjalnie zaprojektowane do
-                  użytku wewnątrz i na zewnątrz, dzięki czemu są idealnym
-                  rozwiązaniem zarówno na wystawy, targi, jak i do promocji
-                  reklam w przestrzeniach publicznych. Oto kilka zalet naszych
-                  folii frontlight:
+                  W zależności od Twoich potrzeb i miejsca, w którym baner
+                  będzie eksponowany, możesz wybrać jedno z poniższych rozwiązań:
+                
+                <ol>
+                  <li><b>Oczkowanie</b></li>
+                  <p>Oczkowanie pozwala na szybki i wygodny montaż banera. 
+                    Oferujemy trzy opcje rozmieszczenia oczek:
+                    <ul>
+                      <li>Co 25cm - dla większej stabilności i równomiernego rozłożenia ciężaru.</li>
+                      <li>Co 50cm - standardowe rozwiązanie dla większości zastosowań.</li>
+                      <li>Według życzenia klienta - możemy dostosować rozmieszczenie oczek do Twoich indywidualnych potrzeb.</li>
+                    </ul>
+                  </p>
+                  <li><b>Tunel</b></li>
+                  <p>
+                  Tunel to opcja, która polega na stworzeniu przestrzeni na rurkę lub drążek od góry i dołu.
+                  </p>
+                  <li><b>Docinanie na ostro</b> z oczkami lub bez</li>
+                  <p>
+                  W tej opcji krawędzie banera są przycinane na ostro, co nadaje mu bardziej 
+                  nowoczesny i elegancki wygląd. <br></br> Jest to doskonała opcja, gdy chcesz, aby Twój baner miał czyste, 
+                  wyraziste krawędzie bez dodatkowego wykończenia. To rozwiązanie jest mniej trwałe od zawijania krawędzi.
+                  </p>
+                </ol>
+                <p>
+                <b>Dlaczego warto wybrać odpowiednie wykończenie?</b> <br></br> Wybór odpowiedniego wykończenia banera 
+                zależy od jego przeznaczenia i miejsca montażu. Oferujemy elastyczność w dostosowywaniu rozwiązań do 
+                Twoich potrzeb, co zapewnia wygodę i trwałość reklamy.
+                <br></br><br></br>
+                Dodatkowowo oferujemy laminowanie banerów, w celu zwiększenia ich żywotności i odporności na promieniowanie UV i warunki atmosferyczne. 
                 </p>
-                <ul className="baners-list">
-                  <li>Wysoka jakość druku</li>
-                  <li>Wysoka trwałość</li>
-                  <li>
-                    Folie frontlit charakteryzują się znakomitą
-                    transparentnością, co pozwala na skuteczne wyświetlanie
-                    grafiki zarówno w dzień, jak i w nocy.{" "}
-                  </li>
-                  <li>
-                    Dostępne w różnych szerokościach: co pozwala na dostosowanie
-                    ich do indywidualnych potrzeb klienta
-                  </li>
-                </ul>
-                <p className="card-text-2">
-                  <b>Gramatura</b> to parametr określający masę papieru lub
-                  materiału na metr kwadratowy. Im większa gramatura, tym
-                  grubszy i bardziej wytrzymały jest baner. Oto kilka
-                  przykładowych banerów dostępnych w naszej ofercie:
                 </p>
-                <ul className="baners-list">
-                  <li>
-                    Banery o średniej gramaturze (160 g/m<sup>2</sup>)
-                  </li>
-                  <ul>
-                    <li>
-                      Doskonałe na średnioterminowe wydarzenia i promocje, jak
-                      targi, wystawy czy prezentacje.
-                    </li>
-                    <li>
-                      Zapewniają lepszą trwałość i wytrzymałość niż banery o
-                      niskiej gramaturze.
-                    </li>
-                  </ul>
-                  <li>
-                    Banery o wysokiej gramaturze (400g/m<sup>2</sup>)
-                  </li>
-                  <ul>
-                    <li>Wytrzymałe i odporne na warunki atmosferyczne.</li>
-                    <li>
-                      Stworzone z myślą o długoterminowych zastosowaniach,
-                      takich jak reklama w sklepach czy na budynkach.
-                    </li>
-                  </ul>
-                </ul>
-                <p className="card-text-2">
-                  Niezależnie od wybranej gramatury, nasze banery są drukowane
-                  przy użyciu najnowocześniejszych technologii, które zapewniają
-                  wyraziste kolory, ostre detale i trwałość na długie lata.
-                  Ponadto, oferujemy różne opcje wykończenia, takie jak oczka do
-                  zawieszania, aby ułatwić ich montaż.
-                  <br />
-                </p>
-                <p className="card-text-2">
-                  Zalecane jest również <b>zgrzewanie</b> banerów.
-                  <br />
-                  Zgrzewanie brzegów banera jest procesem używanym w produkcji
-                  banerów i materiałów reklamowych, aby zabezpieczyć i wzmocnić
-                  ich krawędzie. Podczas tego procesu brzegi banera są łączone
-                  poprzez zastosowanie gorącego zgrzewu, który rozpuszcza
-                  materiał na brzegach, tworząc trwałe połączenie. Zgrzewanie
-                  brzegów pomaga zapobiec rozwarstwianiu się materiału,
-                  zapewniając mu większą wytrzymałość, szczególnie w warunkach
-                  atmosferycznych. Ważnym aspektem zgrzewania brzegów banera
-                  jest szerokość zgrzewu. Szerokość ta zawiera się w
-                  ostatecznych wymiarach banera.{" "}
-                </p>
-
                 <p className="card-text-2">
                   <b>
                     W przypadku pytań lub potrzeby indywidualnej pomocy prosimy

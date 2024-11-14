@@ -43,12 +43,12 @@ function CookieModal() {
         <p> Nasza strona internetowa korzysta z plików cookies, 
         aby zapewnić Ci najlepsze możliwe doświadczenie podczas korzystania z naszej 
         strony. Korzystając z naszej strony, wyrażasz zgodę na stosowanie plików cookies zgodnie 
-        z naszą <Link to="/policy">polityką prywatności.</Link> oraz <Link to="/terms">warunkami korzystania</Link> z tej strony
+        z naszą <Link to="/policy">polityką prywatności.</Link> oraz <Link to="/terms">warunkami korzystania</Link> z tej strony.
         </p>
         <input type="checkbox" id="policy-check" name="policy-check" onChange={handleCheckChange} required/>
         <label htmlFor="policy-check" style={{marginLeft: '6px'}}> Zapoznałem/am się z polityką prywatności</label><br/>
         <input type="checkbox" id="terms-check" name="terms-check" onChange={handleCheckChange} required/>
-        <label htmlFor="terms-check" style={{marginLeft: '6px'}}> Zapoznałem/am się z warunkami korzystania z tej strony</label>
+        <label htmlFor="terms-check" style={{marginLeft: '6px'}}> Zapoznałem/am się z warunkami korzystania</label>
         <p id="validationMessage" style={{ display: showValidationMessage ? 'block' : 'none' }}>Musisz zaakceptować zgody by przejść dalej.</p>
         <button id="acceptCookie" disabled={!policyCheck || !termsCheck} onClick={handleAccept}>Zaakceptuj</button>
       </div>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Modal, Button } from "react-bootstrap";
+import { Container, Row, Modal, Button, Col } from "react-bootstrap";
 import Masonry from "react-masonry-css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faFaceGrinStars } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const windowHeight = window.innerHeight;
@@ -78,7 +80,41 @@ const About = () => {
       <div className="about">
         <Container className="card-container p-5">
           <h3 className="header-center-big mb-5 services-h3">O NAS</h3>
-          <Row className="price-list-row card-one"></Row>
+          <Row className="card-one mb-5 about-bg">
+            <p className="card-text-2">
+            <b>Witamy Was w naszym studio</b>, gdzie druk i reklama spotykają się w harmonii! Jako drukarnia wielkoformatowa i studio reklamy, jesteśmy gotowi dostarczyć Wam unikalne i efektywne rozwiązania reklamowe!
+            Nasze produkty, to narzędzia marketingowe, które pomogą wypromować Twój biznes! Oferujemy między innymi:
+              <ul>
+                <li>Banery,</li>
+                <li>Naklejki jednokolorowe,</li>
+                <li>Naklejki z nadrukiem,</li>
+                <li>Naklejki OWV,</li>
+                <li>Tabliczki,</li>
+                <li>Magnesy,</li>
+                <li>Roll-up'y,</li>
+                <li>Potykacze,</li>
+                <li>Oraz wiele innych!</li>
+              </ul>
+            Zapraszamy Was do współpracy i odkrywania świata druku! <FontAwesomeIcon icon={faFaceGrinStars} />
+            <br></br>
+            <br></br>
+            <Row className="social-links">
+              <Col xs={12} className="d-flex justify-content-center align-items-center">
+              <b>Odwiedź nasze social-media: </b><br></br><br></br></Col>
+              <Col xs={6} className="d-flex justify-content-end align-items-center">
+                  <Link className="icon-link" to="https://www.facebook.com/Printlypl/">
+                      <FontAwesomeIcon icon={faFacebook} />
+                  </Link>
+              </Col>
+              <Col xs={6} className="d-flex justify-content-start align-items-center">
+                  <Link className="icon-link" to="https://www.instagram.com/printlypl/">
+                      <FontAwesomeIcon icon={faInstagram} />
+                  </Link>
+              </Col>
+            </Row>
+
+            </p>
+          </Row>
           <h3 className="header-center-big mb-5 services-h3">GALERIA</h3>
           <Masonry
             breakpointCols={breakpointColumnsObj}

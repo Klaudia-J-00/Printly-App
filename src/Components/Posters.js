@@ -115,100 +115,14 @@ const Posters = () => {
                 />
                 <h5 className="card-title mt-4">PLAKATY</h5>
                 <p className="card-text-2">
-                  Nasza firma oferuje niepowtarzalne plakaty reklamowe, które
-                  pozwolą Ci w pełni wyrazić swoje idee i przyciągnąć uwagę
-                  Twojej docelowej publiczności.
-                  <br />
-                  <br />
-                  <b>Wybierz odpowiedni papier:</b> <br />
-                  <br />
-                  Gramatura i zastosowanie:
+                Plakaty to jedna z najstarszych, ale wciąż bardzo skutecznych form 
+                reklamy wizualnej. Dzięki ich dużym formatom i atrakcyjnej grafice, 
+                przyciągają uwagę odbiorców w każdym miejscu – od ścian w biurach, 
+                przez przestrzenie publiczne, aż po ogłoszenia na wydarzeniach czy 
+                wystawach. Nasza drukarnia oferuje plakaty, które wyróżniają się doskonałą 
+                jakością druku i trwałością, dostosowane do różnych potrzeb. 
                 </p>
-                <ul className="baners-list">
-                  <li>
-                    <b>
-                      150 g/m<sup>2</sup>
-                    </b>
-                    <br />
-                    <ul>
-                      <li>
-                        Lekki papier o wysokiej jakości, idealny do wewnętrznych
-                        plakatów reklamowych, ogłoszeń w biurach czy sklepach.
-                        Doskonale nadaje się do promocji wydarzeń, wyprzedaży
-                        lub kampanii marketingowych.
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <b>
-                      200 g/m<sup>2</sup>
-                    </b>
-                    <br />
-                    <ul>
-                      <li>
-                        Średnio-gruba gramatura, polecana do plakatów
-                        wywieszanych na zewnątrz, np. przy okazji eventów
-                        plenerowych, koncertów, festiwali. Druk na tym papierze
-                        jest trwalszy i bardziej odporny na warunki
-                        atmosferyczne.
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <b>
-                      250 g/m<sup>2</sup>
-                    </b>
-                    <br />
-                    <ul>
-                      <li>
-                        Gruby, wytrzymały papier, który doskonale sprawdza się
-                        jako podstawa dla grafik, zdjęć lub ilustracji. Idealny
-                        do eksponowania na targach, wystawach lub w punktach
-                        sprzedaży, gdzie trwałość plakatu ma kluczowe znaczenie.
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <p>Rodzaje powierzchni:</p>
-                <ul className="baners-list">
-                  <li>Błysk</li>
-                  <ul>
-                    <li>
-                      Plakaty na błyszczącym papierze wyróżniają się
-                      intensywnością kolorów i głębią kontrastów. Ta opcja
-                      świetnie podkreśla zdjęcia, grafiki i efekty wizualne, co
-                      sprawia, że plakaty nabierają profesjonalnego charakteru.
-                      Idealny wybór, jeśli zamierzasz prezentować zdjęcia
-                      produktów, portrety lub grafiki artystyczne.
-                    </li>
-                  </ul>
-                  <li>Mat</li>
-                  <ul>
-                    <li>
-                      Papier matowy nadaje plakatom bardziej subtelny wygląd,
-                      eliminując refleksy światła. Daje on wyrazistość grafikom,
-                      a także działa dobrze przy prezentacji ilustracji
-                      artystycznych, grafik komputerowych i szkiców.
-                    </li>
-                  </ul>
-                </ul>
-                <p className="card-text-2">
-                  Wykorzystujemy najnowocześniejsze drukarki i technologie, aby
-                  zapewnić najwyższą jakość naszych plakatów. Dbamy o szczegóły
-                  i kolory, aby Twoje plakaty były perfekcyjne w każdym detalu.
-                  <br />
-                  <br />
-                  Dodatkowo oferujemy usługę docinania plakatów do dowolnie
-                  wybranych kształtów, aby spełnić wszystkie indywidualne
-                  życzenia naszych klientów.
-                </p>
-                <p className="card-text-2">
-                  Niezależnie od tego, czy chcesz promować swoją markę, ogłosić
-                  wydarzenie, czy zwiększyć ruch w swoim sklepie, nasze plakaty
-                  wielkoformatowe są odpowiednie dla różnych celów. Drukujemy
-                  plakaty, które zachwycą i przyciągną wzrok zarówno wewnątrz,
-                  jak i na zewnątrz.
-                </p>
+                
                 <p className="card-text-2">
                   <b>
                     W przypadku pytań lub potrzeby indywidualnej pomocy prosimy
@@ -411,99 +325,12 @@ const Posters = () => {
                   </a>
                 </span>
                 <p className="card-text-2">
-                  Nasza firma oferuje niepowtarzalne plakaty reklamowe, które
-                  pozwolą Ci w pełni wyrazić swoje idee i przyciągnąć uwagę
-                  Twojej docelowej publiczności.
-                  <br />
-                  <br />
-                  <b>Wybierz odpowiedni papier:</b> <br />
-                  <br />
-                  Gramatura i zastosowanie:
-                </p>
-                <ul className="baners-list">
-                  <li>
-                    <b>
-                      150 g/m<sup>2</sup>
-                    </b>
-                    <br />
-                    <ul>
-                      <li>
-                        Lekki papier o wysokiej jakości, idealny do wewnętrznych
-                        plakatów reklamowych, ogłoszeń w biurach czy sklepach.
-                        Doskonale nadaje się do promocji wydarzeń, wyprzedaży
-                        lub kampanii marketingowych.
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <b>
-                      200 g/m<sup>2</sup>
-                    </b>
-                    <br />
-                    <ul>
-                      <li>
-                        Średnio-gruba gramatura, polecana do plakatów
-                        wywieszanych na zewnątrz, np. przy okazji eventów
-                        plenerowych, koncertów, festiwali. Druk na tym papierze
-                        jest trwalszy i bardziej odporny na warunki
-                        atmosferyczne.
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <b>
-                      250 g/m<sup>2</sup>
-                    </b>
-                    <br />
-                    <ul>
-                      <li>
-                        Gruby, wytrzymały papier, który doskonale sprawdza się
-                        jako podstawa dla grafik, zdjęć lub ilustracji. Idealny
-                        do eksponowania na targach, wystawach lub w punktach
-                        sprzedaży, gdzie trwałość plakatu ma kluczowe znaczenie.
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <p>Rodzaje powierzchni:</p>
-                <ul className="baners-list">
-                  <li>Błysk</li>
-                  <ul>
-                    <li>
-                      Plakaty na błyszczącym papierze wyróżniają się
-                      intensywnością kolorów i głębią kontrastów. Ta opcja
-                      świetnie podkreśla zdjęcia, grafiki i efekty wizualne, co
-                      sprawia, że plakaty nabierają profesjonalnego charakteru.
-                      Idealny wybór, jeśli zamierzasz prezentować zdjęcia
-                      produktów, portrety lub grafiki artystyczne.
-                    </li>
-                  </ul>
-                  <li>Mat</li>
-                  <ul>
-                    <li>
-                      Papier matowy nadaje plakatom bardziej subtelny wygląd,
-                      eliminując refleksy światła. Daje on wyrazistość grafikom,
-                      a także działa dobrze przy prezentacji ilustracji
-                      artystycznych, grafik komputerowych i szkiców.
-                    </li>
-                  </ul>
-                </ul>
-                <p className="card-text-2">
-                  Wykorzystujemy najnowocześniejsze drukarki i technologie, aby
-                  zapewnić najwyższą jakość naszych plakatów. Dbamy o szczegóły
-                  i kolory, aby Twoje plakaty były perfekcyjne w każdym detalu.
-                  <br />
-                  <br />
-                  Dodatkowo oferujemy usługę docinania plakatów do dowolnie
-                  wybranych kształtów, aby spełnić wszystkie indywidualne
-                  życzenia naszych klientów.
-                </p>
-                <p className="card-text-2">
-                  Niezależnie od tego, czy chcesz promować swoją markę, ogłosić
-                  wydarzenie, czy zwiększyć ruch w swoim sklepie, nasze plakaty
-                  wielkoformatowe są odpowiednie dla różnych celów. Drukujemy
-                  plakaty, które zachwycą i przyciągną wzrok zarówno wewnątrz,
-                  jak i na zewnątrz.
+                Plakaty to jedna z najstarszych, ale wciąż bardzo skutecznych form 
+                reklamy wizualnej. Dzięki ich dużym formatom i atrakcyjnej grafice, 
+                przyciągają uwagę odbiorców w każdym miejscu – od ścian w biurach, 
+                przez przestrzenie publiczne, aż po ogłoszenia na wydarzeniach czy 
+                wystawach. Nasza drukarnia oferuje plakaty, które wyróżniają się doskonałą 
+                jakością druku i trwałością, dostosowane do różnych potrzeb. 
                 </p>
                 <p className="card-text-2">
                   <b>

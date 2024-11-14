@@ -48,7 +48,7 @@ const Footer = () => {
             <a href="https://www.facebook.com/Printlypl/">
                 <FontAwesomeIcon icon={faFacebook} className="socials-icon" />
             </a>
-            <a href="https://www.instagram.com/printly.pl/">
+            <a href="https://www.instagram.com/printlypl/">
                 <FontAwesomeIcon icon={faInstagram} className="socials-icon" />
             </a>
             <Link to="/">

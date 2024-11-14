@@ -195,6 +195,29 @@ const Services = () => {
                 />
               </Col>
             </Row>
+
+            <Row className="m-5 card-one reveal">
+              <Col sm={4}>
+                <img
+                  src="img/sticker-window.png"
+                  className="img-fluid rounded-left"
+                  alt="roll-up"
+                />
+              </Col>
+              <Col sm={8}>
+                <div className="card-body d-flex flex-column justify-content-between h-100">
+                  <h5 className="card-title">FOLIE REKLAMOWE</h5>
+                  <p className="card-text">
+                    Monomeryczne lub polimeryczne folie wykorzystywane do reklamy wewnętrznej lub zewnętrznej, idealne do oklejania witryn sklepowych, samochodów, szyb, ścian, podłóg, mebli, drzwi, a także do 
+                    oznakowania tablic.
+                  </p>
+                  <button className="mt-auto">
+                    <Link to="/foil">Kalkulator cen</Link>
+                  </button>
+                </div>
+              </Col>
+            </Row>
+
           </Container>
         </div>) : (
         <>

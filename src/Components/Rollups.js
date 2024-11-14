@@ -19,7 +19,7 @@ const Rollups = () => {
   const calculatePrice = () => {
     const discount_5 = 0.05; // 10% rabatu od 5 sztuk
     const discount_10 = 0.1; // 20% rabatu od 10 sztuk
-    let pricePerSquareMeter = 10;
+    let pricePerSquareMeter = 250;
     const projectPrice = 100;
     let area = 0;
     let priceRollUp = 0;
@@ -35,14 +35,8 @@ const Rollups = () => {
       priceRollUp = 150;
     }
 
-    let price = area * pricePerSquareMeter;
-    price += priceRollUp; //cena za roll-up
-    // Dodatkowe koszty (tusz, prąd, praca)
-    const priceInk = 2 * area; //cena za tusz -> 2zl za metr kwadratowy
-    const priceElectricity = 0.5 * area; //cena za prad -> 50 gr za metr kwadratowy
-    const priceWork = 5 * area; //cena za prace -> 5zl za metr kwadratowy
-    price += priceInk + priceElectricity + priceWork; //cena za tusz, prad i prace wliczona do ceny koncowej
-
+    let price = pricePerSquareMeter;
+    
     if (quantity > 10) {
       price -= price * discount_10; //rabat powyzej 10 sztuk
       setDiscount(" (zastosowano -10% przy wyborze powyżej 10 sztuk)");
@@ -125,14 +119,6 @@ const Rollups = () => {
                     wykonane, gwarantują długą żywotność produktu, co pozwoli Ci
                     wielokrotnie wykorzystać baner na różnych wydarzeniach i
                     promocjach.
-                  </li>
-                  <li>
-                    <b>Różnorodność: </b>
-                    <br />W naszej ofercie znajdziesz roll-upy w różnych
-                    rozmiarach i wersjach, aby dopasować je do Twoich
-                    indywidualnych potrzeb. Oferujemy także możliwość druku
-                    zarówno jednostronnego, jak i dwustronnego, co pozwala na
-                    maksymalne wykorzystanie przestrzeni reklamowej.
                   </li>
                 </ul>
                 <p>
@@ -335,14 +321,6 @@ const Rollups = () => {
                     wielokrotnie wykorzystać baner na różnych wydarzeniach i
                     promocjach.
                   </li>
-                  <li>
-                    <b>Różnorodność: </b>
-                    <br />W naszej ofercie znajdziesz roll-upy w różnych
-                    rozmiarach i wersjach, aby dopasować je do Twoich
-                    indywidualnych potrzeb. Oferujemy także możliwość druku
-                    zarówno jednostronnego, jak i dwustronnego, co pozwala na
-                    maksymalne wykorzystanie przestrzeni reklamowej.
-                  </li>
                 </ul>
                 <p>
                   <b>Zastosowania roll-upów:</b>
@@ -404,11 +382,11 @@ const Rollups = () => {
                       onChange={(e) => setDimensions(e.target.value)}
                     >
                       <option value="small" disabled>
-                        80 x 200 cm
+                        80 x 200 cm - chwilowo niedostępne
                       </option>
                       <option value="mid">85 x 200 cm</option>
                       <option value="big" disabled>
-                        100 x 200 cm
+                        100 x 200 cm - chwilowo niedostępne
                       </option>
                     </select>
                     <br />

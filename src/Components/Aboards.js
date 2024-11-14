@@ -20,7 +20,7 @@ const Aboards = () => {
   const calculatePrice = () => {
     const discount_5 = 0.05; // 5% rabatu od 5 sztuk
     const discount_10 = 0.1; // 10% rabatu od 10 sztuk
-    let pricePerSquareMeter = 100;
+    let pricePerSquareMeter = 200;
     const projectPrice = 100;
     let area = 0;
     let priceAboard = 0;
@@ -30,7 +30,7 @@ const Aboards = () => {
       priceAboard = 250;
     } else if (dimensions === "A2") {
       area = (42 * 59.4) / 10000;
-      priceAboard = 200;
+      priceAboard = 300;
     } else if (dimensions === "B1") {
       area = (70.7 * 100) / 10000;
       priceAboard = 350;
@@ -40,15 +40,11 @@ const Aboards = () => {
     }
 
     if (print === "diff") {
-      pricePerSquareMeter *= 2;
+      pricePerSquareMeter *= 1.5;
     }
 
     let price = area * pricePerSquareMeter; //cena za 1 sztukę
-    price += priceAboard; //cena za potykacz wliczona do ceny koncowej
-    const priceInk = 2 * area; //cena za tusz -> 2zl za metr kwadratowy
-    const priceElectricity = 0.5 * area; //cena za prad -> 50 gr za metr kwadratowy
-    const priceWork = 5 * area; //cena za prace -> 5zl za metr kwadratowy
-    price += priceInk + priceElectricity + priceWork; //cena za tusz, prad i prace wliczona do ceny koncowej
+    price += priceAboard; 
 
     if (quantity > 10) {
       price -= price * discount_10; //rabat powyzej 10 sztuk
@@ -110,13 +106,6 @@ const Aboards = () => {
                   atmosferyczne.
                   <br />
                   <br />
-                  Jedną z unikalnych możliwości, jakie oferujemy, jest druk na
-                  specjalnej folii przypominającej tablicę lub na folii
-                  zmywalnej, która pozwala na wpisywanie treści kredą lub
-                  markerem, jak na przykład ceny, które podlegają regularnym
-                  zmianom.
-                  <br />
-                  <br />
                   <b>Główne zalety naszych potykaczy:</b>
                 </p>
                 <ul className="baners-list">
@@ -128,15 +117,6 @@ const Aboards = () => {
                     menu. Dzięki możliwości druku na folii przypominającej
                     tablicę, można używać ich jak tradycyjnych tablic menu, ale
                     z większymi możliwościami personalizacji.
-                  </li>
-                  <li>
-                    <b>Zmywalność:</b>
-                    <br />
-                    Potykacze z drukiem na folii zmywalnej są szczególnie
-                    praktyczne w miejscach, gdzie występują częste zmiany
-                    informacji, takie jak ceny czy promocje. Z łatwością można
-                    przetrzeć starą treść i wpisać nowe dane, co pozwala
-                    zaoszczędzić na kosztach ponownego druku.
                   </li>
                   <li>
                     <b>Wytrzymała konstrukcja:</b>
@@ -337,13 +317,6 @@ const Aboards = () => {
                   atmosferyczne.
                   <br />
                   <br />
-                  Jedną z unikalnych możliwości, jakie oferujemy, jest druk na
-                  specjalnej folii przypominającej tablicę lub na folii
-                  zmywalnej, która pozwala na wpisywanie treści kredą lub
-                  markerem, jak na przykład ceny, które podlegają regularnym
-                  zmianom.
-                  <br />
-                  <br />
                   <b>Główne zalety naszych potykaczy:</b>
                 </p>
                 <ul className="baners-list">
@@ -355,15 +328,6 @@ const Aboards = () => {
                     menu. Dzięki możliwości druku na folii przypominającej
                     tablicę, można używać ich jak tradycyjnych tablic menu, ale
                     z większymi możliwościami personalizacji.
-                  </li>
-                  <li>
-                    <b>Zmywalność:</b>
-                    <br />
-                    Potykacze z drukiem na folii zmywalnej są szczególnie
-                    praktyczne w miejscach, gdzie występują częste zmiany
-                    informacji, takie jak ceny czy promocje. Z łatwością można
-                    przetrzeć starą treść i wpisać nowe dane, co pozwala
-                    zaoszczędzić na kosztach ponownego druku.
                   </li>
                   <li>
                     <b>Wytrzymała konstrukcja:</b>

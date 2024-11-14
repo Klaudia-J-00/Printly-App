@@ -25,7 +25,7 @@ const Magnets = () => {
       .required("Wymagane"),
     height: Yup.number()
       .min(5, "Wartość nie może być mniejsza niż 5cm")
-      .max(61, "Wartość nie może przekroczyć 61cm")
+      .max(61, "Wartość nie może przekroczyć 60cm")
       .required("Wymagane"),
   });
 
@@ -33,41 +33,18 @@ const Magnets = () => {
   const calculatePrice = (width, height) => {
     const discount_5 = 0.05; // 10% rabatu od 5 sztuk
     const discount_10 = 0.1; // 20% rabatu od 10 sztuk
-    let priceForSquareMeter = 0; //cena za metr kwadratowy naklejki
     const projectPrice = 100;
+    let priceMagnetSquareMeter = 333; //cena za metr kwadratowy magnesu
+
+    // obliczenia
     const widthM = width / 100;
     const heightM = height / 100;
     const area = widthM * heightM;
-    let priceMagnetSquareMeter = 50; //cena za metr kwadratowy magnesu
 
-    if (area < 0.002) {
-      priceForSquareMeter = 3000;
-    } else if (area < 0.01) {
-      priceForSquareMeter = 1140;
-    } else if (area < 0.2) {
-      priceForSquareMeter = 1000;
-    } else if (area < 0.1) {
-      priceForSquareMeter = 300;
-    } else if (area < 0.5) {
-      priceForSquareMeter = 200;
-    } else if (area < 1) {
-      priceForSquareMeter = 190;
-    } else if (area < 2) {
-      priceForSquareMeter = 130;
-    } else if (area < 3) {
-      priceForSquareMeter = 120;
-    }
-
-    let price = area * priceForSquareMeter + area * priceMagnetSquareMeter; //cena za metr kwadratowy naklejki i magnesu
-
-    // Dodatkowe koszty (tusz, prąd, praca)
-    const priceInk = 2 * area; //cena za tusz -> 2zl za metr kwadratowy
-    const priceElectricity = 0.5 * area; //cena za prad -> 50 gr za metr kwadratowy
-    const priceWork = 5 * area; //cena za prace -> 5zl za metr kwadratowy
-    price += priceInk + priceElectricity + priceWork; //cena za tusz, prad i prace wliczona do ceny koncowej
+    let price = area * priceMagnetSquareMeter; //cena za metr kwadratowy naklejki i magnesu
 
     if (lamination) {
-      price += area * 20; //cena za baner z laminacja -> 10 gr wiecej za metr kwadratowy laminacji
+      price += 20; //cena za baner z laminacja -> 10 gr wiecej za metr kwadratowy laminacji
     }
 
     if (quantity > 10) {
@@ -244,7 +221,8 @@ const Magnets = () => {
                           name="height"
                           min="5"
                           step="1"
-                          max="61"
+                          defaultValue = "50"
+                          max="60"
                           className="w-100"
                         />
                         <ErrorMessage
@@ -457,7 +435,7 @@ const Magnets = () => {
                   </p>
 
                   <Formik
-                    initialValues={{ width: 100, height: 100 }}
+                    initialValues={{ width: 50, height: 50 }}
                     validationSchema={validationSchema}
                     onSubmit={(values, { setSubmitting }) => {
                       calculatePrice(values.width, values.height);
@@ -506,7 +484,8 @@ const Magnets = () => {
                           name="height"
                           min="5"
                           step="1"
-                          max="61"
+                          max="60"
+                          defaultValue ="50"
                           className="w-100"
                         />
                         <ErrorMessage

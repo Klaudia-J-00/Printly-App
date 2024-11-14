@@ -43,6 +43,9 @@ const MyNavbar = () => {
                                         <NavDropdown.Item as={Link} to="/rollups">ROLL-UPY</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item as={Link} to="/magnets">MAGNESY</NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item as={Link} to="/foil">FOLIE REKLAMOWE</NavDropdown.Item>
+                                        
                                     </NavDropdown>
                                 </Nav>
                             </Container>
@@ -52,9 +55,18 @@ const MyNavbar = () => {
             </Container>
         ) : (
             <div>
-                <div>
-                        <Link to="/"><img src="img/logo.png" className="img-fluid mt-3" alt="Logo" /></Link>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
+                    <Link to="/">
+                        <img 
+                            src="img/logo.png" 
+                            className="img-fluid mt-3 img-navbar" 
+                            alt="Logo" 
+                            style={{ width: "60%" }} 
+                        />
+                    </Link>
                 </div>
+
+
                 <div className='nav-mobile'>
                     <Link to="/about" className='nav-mobile-link'>O NAS</Link>
                     <Link to="/contact" className='nav-mobile-link'>KONTAKT</Link>
