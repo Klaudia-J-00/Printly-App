@@ -76,26 +76,25 @@ const Services = () => {
               </Col>
             </Row>
 
-            <Row className="m-5 card-one reveal2">
-              <Col sm={8}>
-                <div className="card-body d-flex flex-column justify-content-between h-100">
-                  <h5 className="card-title">PLAKATY</h5>
-                  <p className="card-text">
-                    Z naszym drukiem plakatów możesz przyciągnąć uwagę klientów.
-                    Dostępne w różnych formatach, plakaty są skutecznym narzędziem
-                    marketingowym zarówno dla małych biznesów, jak i dużych firm.
-                  </p>
-                  <button className="mt-auto">
-                    <Link to="/posters">Kalkulator cen</Link>
-                  </button>
-                </div>
-              </Col>
+            <Row className="m-5 card-one reveal">
               <Col sm={4}>
                 <img
-                  src="img/poster2.png"
-                  className="img-fluid rounded-right"
-                  alt="poster"
+                  src="img/sticker-window.png"
+                  className="img-fluid rounded-left"
+                  alt="roll-up"
                 />
+              </Col>
+              <Col sm={8}>
+                <div className="card-body d-flex flex-column justify-content-between h-100">
+                  <h5 className="card-title">FOLIE REKLAMOWE</h5>
+                  <p className="card-text">
+                    Monomeryczne lub polimeryczne folie wykorzystywane do reklamy wewnętrznej lub zewnętrznej, idealne do oklejania witryn sklepowych, samochodów, szyb, ścian, podłóg, mebli, drzwi, a także do 
+                    oznakowania tablic.
+                  </p>
+                  <button className="mt-auto">
+                    <Link to="/foil">Kalkulator cen</Link>
+                  </button>
+                </div>
               </Col>
             </Row>
 
@@ -196,25 +195,26 @@ const Services = () => {
               </Col>
             </Row>
 
-            <Row className="m-5 card-one reveal">
-              <Col sm={4}>
-                <img
-                  src="img/sticker-window.png"
-                  className="img-fluid rounded-left"
-                  alt="roll-up"
-                />
-              </Col>
+            <Row className="m-5 card-one reveal2">
               <Col sm={8}>
                 <div className="card-body d-flex flex-column justify-content-between h-100">
-                  <h5 className="card-title">FOLIE REKLAMOWE</h5>
+                  <h5 className="card-title">PLAKATY</h5>
                   <p className="card-text">
-                    Monomeryczne lub polimeryczne folie wykorzystywane do reklamy wewnętrznej lub zewnętrznej, idealne do oklejania witryn sklepowych, samochodów, szyb, ścian, podłóg, mebli, drzwi, a także do 
-                    oznakowania tablic.
+                    Z naszym drukiem plakatów możesz przyciągnąć uwagę klientów.
+                    Dostępne w różnych formatach, plakaty są skutecznym narzędziem
+                    marketingowym zarówno dla małych biznesów, jak i dużych firm.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/foil">Kalkulator cen</Link>
+                    <Link to="/posters">Kalkulator cen</Link>
                   </button>
                 </div>
+              </Col>
+              <Col sm={4}>
+                <img
+                  src="img/poster2.png"
+                  className="img-fluid rounded-right"
+                  alt="poster"
+                />
               </Col>
             </Row>
 
@@ -247,19 +247,18 @@ const Services = () => {
 
               <Col className="price-list-col-mobile mb-4 reveal">
               <img
-                  src="img/poster2.png"
+                  src="img/sticker-window.png"
                   className="img-fluid rounded"
-                  alt="poster"
+                  alt="magnets"
                 />
                 <div className="card-body d-flex flex-column justify-content-between h-100">
-                  <h5 className="card-title text-center">PLAKATY</h5>
+                  <h5 className="card-title text-center">FOLIE REKLAMOWE</h5>
                   <p className="card-text">
-                    Z naszym drukiem plakatów możesz przyciągnąć uwagę klientów.
-                    Dostępne w różnych formatach, plakaty są skutecznym narzędziem
-                    marketingowym zarówno dla małych biznesów, jak i dużych firm.
+                  Monomeryczne lub polimeryczne folie wykorzystywane do reklamy wewnętrznej lub zewnętrznej, idealne do oklejania witryn sklepowych, samochodów, szyb, ścian, podłóg, mebli, drzwi, a także do 
+                  oznakowania tablic.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/posters">Kalkulator cen</Link>
+                    <Link to="/magnets">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
@@ -344,25 +343,26 @@ const Services = () => {
                   </button>
                 </div>
               </Col>
-
+              
               <Col className="price-list-col-mobile mb-4 reveal">
               <img
-                  src="img/sticker-window.png"
+                  src="img/poster2.png"
                   className="img-fluid rounded"
-                  alt="magnets"
+                  alt="poster"
                 />
                 <div className="card-body d-flex flex-column justify-content-between h-100">
-                  <h5 className="card-title text-center">FOLIE REKLAMOWE</h5>
+                  <h5 className="card-title text-center">PLAKATY</h5>
                   <p className="card-text">
-                  Monomeryczne lub polimeryczne folie wykorzystywane do reklamy wewnętrznej lub zewnętrznej, idealne do oklejania witryn sklepowych, samochodów, szyb, ścian, podłóg, mebli, drzwi, a także do 
-                  oznakowania tablic.
+                    Z naszym drukiem plakatów możesz przyciągnąć uwagę klientów.
+                    Dostępne w różnych formatach, plakaty są skutecznym narzędziem
+                    marketingowym zarówno dla małych biznesów, jak i dużych firm.
                   </p>
                   <button className="mt-auto">
-                    <Link to="/magnets">Kalkulator cen</Link>
+                    <Link to="/posters">Kalkulator cen</Link>
                   </button>
                 </div>
               </Col>
-
+              
             </Row>
           </Container>
          </>)}

@@ -34,7 +34,7 @@ const MyNavbar = () => {
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item as={Link} to="/baners">BANERY</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item as={Link} to="/posters">PLAKATY</NavDropdown.Item>
+                                        <NavDropdown.Item as={Link} to="/foil">FOLIE REKLAMOWE</NavDropdown.Item>
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item as={Link} to="/stickers">NAKLEJKI</NavDropdown.Item>
                                         <NavDropdown.Divider />
@@ -44,8 +44,7 @@ const MyNavbar = () => {
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item as={Link} to="/magnets">MAGNESY</NavDropdown.Item>
                                         <NavDropdown.Divider />
-                                        <NavDropdown.Item as={Link} to="/foil">FOLIE REKLAMOWE</NavDropdown.Item>
-                                        
+                                        <NavDropdown.Item as={Link} to="/posters">PLAKATY</NavDropdown.Item>
                                     </NavDropdown>
                                 </Nav>
                             </Container>

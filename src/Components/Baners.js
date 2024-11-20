@@ -22,7 +22,7 @@ const Baners = () => {
   const validationSchema = Yup.object().shape({
     width: Yup.number()
       .min(50, "Wartość nie może być mniejsza niż 50cm")
-      .max(140, "Wartość nie może przekroczyć 140cm")
+      .max(130, "Wartość nie może przekroczyć 130cm")
       .required("Wymagane"),
     height: Yup.number()
       .min(50, "Wartość nie może być mniejsza niż 50cm")
@@ -32,11 +32,11 @@ const Baners = () => {
 
   const calculatePrice = (width, height) => {
     //Stale
-    const price_160g = 42; // Cena za 1m^2 przy gramaturze 160g (krotsza)
+    const price_160g = 65; // Cena za 1m^2 przy gramaturze 160g (krotsza)
     //const price_400g = 12; // Cena za 1m^2 przy gramaturze 400g (dluzsza)
     const discount_5 = 0.05; // Rabat 5% od ceny końcowej powyżej 5 banerów
     const discount_10 = 0.1; // Rabat 10% od ceny końcowej powyżej 10 banerów
-    const priceEyelet = 0.6; // Cena za 1 oczko 0.50gr
+    const priceEyelet = 0.35; // Cena za 1 oczko 0.50gr
     const projectPrice = 100; // Cena za projekt graficzny
 
     //Obliczenia
@@ -65,15 +65,6 @@ const Baners = () => {
       ); //ilosc oczek (obwod banera dzilimy przez odleglosc miedzy oczkami zeby wyliczyc liczbe oczek)
       price += priceEyelet * eyeletsCount; //cena za oczka
     }
-
-    if (welding) {
-      price += perimeter * 7; //cena za zgrzewanie brzegow -> 7 zł za metr zgrzewu
-    }
-
-    const priceInk = 2 * area; //cena za tusz -> 2zl za metr kwadratowy
-    const priceElectricity = 0.5 * area; //cena za prad -> 50 gr za metr kwadratowy
-    const priceWork = 5 * area; //cena za prace -> 5zl za metr kwadratowy
-    price += priceInk + priceElectricity + priceWork; //cena za tusz, prad i prace wliczona do ceny koncowej
 
     if (quantity > 10) {
       price -= price * discount_10; //rabat powyzej 10 sztuk
@@ -232,7 +223,7 @@ const Baners = () => {
                           name="width"
                           min="50"
                           step="10"
-                          max="140"
+                          max="130"
                           className="w-100"
                         />
                         <ErrorMessage
@@ -275,32 +266,6 @@ const Baners = () => {
                           <option value="25">Tak, co 25cm</option>
                           <option value="100">Tak, co 1m</option>
                         </select>
-                        <br />
-
-                        <label htmlFor="lamination">Laminacja:&nbsp;</label>
-                        <div
-                          onChange={(e) =>
-                            setLamination(e.target.value === "Tak")
-                          }
-                        >
-                          <input
-                            type="radio"
-                            name="lamination"
-                            value="Tak"
-                            id="laminationYes"
-                            checked={lamination === true}
-                          />
-                          <label htmlFor="laminationYes">Tak</label>
-                          &nbsp;&nbsp;
-                          <input
-                            type="radio"
-                            name="lamination"
-                            value="Nie"
-                            id="laminationNo"
-                            checked={lamination === false}
-                          />
-                          <label htmlFor="laminationNo">Nie</label>
-                        </div>
                         <br />
 
                         <label htmlFor="welding">Zgrzane brzegi:&nbsp;</label>
@@ -537,7 +502,7 @@ const Baners = () => {
                           name="width"
                           min="50"
                           step="10"
-                          max="140"
+                          max="130"
                           className="w-100"
                         />
                         <ErrorMessage
@@ -580,32 +545,6 @@ const Baners = () => {
                           <option value="25">Tak, co 25cm</option>
                           <option value="100">Tak, co 1m</option>
                         </select>
-                        <br />
-
-                        <label htmlFor="lamination">Laminacja:&nbsp;</label>
-                        <div
-                          onChange={(e) =>
-                            setLamination(e.target.value === "Tak")
-                          }
-                        >
-                          <input
-                            type="radio"
-                            name="lamination"
-                            value="Tak"
-                            id="laminationYes"
-                            checked={lamination === true}
-                          />
-                          <label htmlFor="laminationYes">Tak</label>
-                          &nbsp;&nbsp;
-                          <input
-                            type="radio"
-                            name="lamination"
-                            value="Nie"
-                            id="laminationNo"
-                            checked={lamination === false}
-                          />
-                          <label htmlFor="laminationNo">Nie</label>
-                        </div>
                         <br />
 
                         <label htmlFor="welding">Zgrzane brzegi:&nbsp;</label>

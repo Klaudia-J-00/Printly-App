@@ -384,20 +384,20 @@ const Stickers = () => {
               {stickerType === "jednokolorowa" ? (
                   <img
                     src="/img/car2.jpg"
-                    className="img-fluid rounded-left-top"
+                    className="img-fluid rounded"
                     alt="..."
                   />
                 ) : stickerType === "nadrukowywana" ? (
                   <img
                     src="/img/car2.jpg"
-                    className="img-fluid rounded-left-top"
+                    className="img-fluid rounded"
                     alt="..."
                   />
                 ) : (
                   <>
                   <img
                     src="/img/car2.jpg"
-                    className="img-fluid rounded-left-top"
+                    className="img-fluid rounded"
                     alt="..."
                   />
                   </> 
