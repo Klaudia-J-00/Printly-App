@@ -2,6 +2,13 @@
 
 Printly App is a React-based application designed to offer a variety of customizable printing services, including banners, posters, stickers, and more. The app features a modern and responsive design to provide an intuitive user experience and easy navigation, helping users find and customize the products they need quickly.
 
+## Author
+
+- **Name**: Klaudia Jędryszczak
+- **Email**: jedryszczakklaudia@gmail.com
+
+#### Link - 'https://printly.net.pl'
+
 ## Setup and Configuration
 
 1. Navigate to directory
@@ -99,9 +106,3 @@ Printly App includes several dedicated calculators for specific products:
 - **Material-UI**: A popular React UI framework for designing responsive web applications.
 - **Bootstrap:** For responsive layout and styling.
 
-## Author
-
-- **Name**: Klaudia Jędryszczak
-- **Email**: jedryszczakklaudia@gmail.com
-
-#### Link - currently not available live
