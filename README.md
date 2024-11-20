@@ -7,7 +7,7 @@ Printly App is a React-based application designed to offer a variety of customiz
 - **Name**: Klaudia Jędryszczak
 - **Email**: jedryszczakklaudia@gmail.com
 
-#### Link - 'https://printly.net.pl'
+#### Link - `https://printly.net.pl`
 
 ## Setup and Configuration
 
